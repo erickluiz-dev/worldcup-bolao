@@ -1,0 +1,259 @@
+/* ==========================================================
+   Container
+========================================================== */
+
+.datatable-container{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    background:#11162B;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.20);
+
+}
+
+/* ==========================================================
+   Tabela
+========================================================== */
+
+.datatable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:900px;
+
+}
+
+/* ==========================================================
+   Cabeçalho
+========================================================== */
+
+.datatable thead{
+
+    background:#0E1326;
+
+}
+
+.datatable th{
+
+    padding:18px 22px;
+
+    color:#8A93B2;
+
+    font-size:.92rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.06em;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================================
+   Corpo
+========================================================== */
+
+.datatable td{
+
+    padding:18px 22px;
+
+    color:#ffffff;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    vertical-align:middle;
+
+}
+
+.datatable tbody tr{
+
+    transition:.25s;
+
+}
+
+.datatable tbody tr:hover{
+
+    background:#181F39;
+
+}
+
+/* ==========================================================
+   Última linha
+========================================================== */
+
+.datatable tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* ==========================================================
+   Ações
+========================================================== */
+
+.datatable-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+/* ==========================================================
+   Botão Editar
+========================================================== */
+
+.datatable-edit{
+
+    border:none;
+
+    background:#00AEEF;
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.datatable-edit:hover{
+
+    background:#008FCC;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   Botão Excluir
+========================================================== */
+
+.datatable-delete{
+
+    border:none;
+
+    background:#C41E3A;
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.datatable-delete:hover{
+
+    background:#A61731;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   Loading
+========================================================== */
+
+.datatable-loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    background:#11162B;
+
+    border-radius:18px;
+
+    color:#8A93B2;
+
+    font-size:1rem;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================================
+   Empty
+========================================================== */
+
+.datatable-empty{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    background:#11162B;
+
+    border-radius:18px;
+
+    color:#8A93B2;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================================
+   Scroll
+========================================================== */
+
+.datatable-container::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.datatable-container::-webkit-scrollbar-thumb{
+
+    background:#2F3B63;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media(max-width:900px){
+
+    .datatable{
+
+        min-width:700px;
+
+    }
+
+}

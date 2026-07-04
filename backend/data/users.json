@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Erick",
+        "email": "erick1302@gmail.com",
+        "password_hash": "$2b$12$J8S/eS6hqYoF6.gkXnVmeOgPXhQFN7D9NunVvc1v3tz02p3IFErSS",
+        "avatar": 9,
+        "role": "user",
+        "active": true,
+        "created_at": "2026-06-27T23:02:48.829897Z",
+        "last_login": "2026-07-03T19:24:27.144028Z"
+    },
+    {
+        "id": 2,
+        "name": "Erick-ADM",
+        "email": "erickluiz@discente.ufg.br",
+        "password_hash": "$2b$12$xaBR5qOjHhNmt4dNXFgENeCUfH1I9y5LLU9jVTTEfm1rWcebe9NjG",
+        "avatar": 1,
+        "role": "admin",
+        "active": true,
+        "created_at": "2026-06-30T00:18:14.930539Z",
+        "last_login": "2026-07-03T19:18:17.934775Z"
+    }
+]

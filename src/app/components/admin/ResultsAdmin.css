@@ -1,0 +1,313 @@
+/* ==========================================================
+   Pesquisa
+========================================================== */
+
+.results-search {
+
+    width: 350px;
+
+    max-width: 100%;
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: #11162B;
+
+    color: #FFFFFF;
+
+    font-size: .95rem;
+
+    transition: .25s;
+
+}
+
+.results-search::placeholder {
+
+    color: #8A93B2;
+
+}
+
+.results-search:focus {
+
+    outline: none;
+
+    border-color: #00AEEF;
+
+    box-shadow: 0 0 0 3px rgba(0,174,239,.18);
+
+}
+
+/* ==========================================================
+   Times
+========================================================== */
+
+.result-team {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-weight: 600;
+
+}
+
+.result-team img {
+
+    width: 34px;
+
+    height: 34px;
+
+    object-fit: contain;
+
+}
+
+/* ==========================================================
+   Status
+========================================================== */
+
+.result-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 100px;
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+}
+
+.result-status.finished {
+
+    background: rgba(0,165,80,.15);
+
+    color: #00A550;
+
+}
+
+.result-status.pending {
+
+    background: rgba(245,130,31,.15);
+
+    color: #F5821F;
+
+}
+
+/* ==========================================================
+   Formulário
+========================================================== */
+
+.results-form {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 24px;
+
+}
+
+/* ==========================================================
+   Card dos Times
+========================================================== */
+
+.result-team-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 24px;
+
+    background: #11162B;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 18px;
+
+}
+
+.result-team-card img {
+
+    width: 72px;
+
+    height: 72px;
+
+    object-fit: contain;
+
+}
+
+.result-team-card h3 {
+
+    margin: 0;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 1.05rem;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================================
+   Input de Gols
+========================================================== */
+
+.result-team-card input {
+
+    width: 90px;
+
+    height: 58px;
+
+    border-radius: 14px;
+
+    border: 2px solid rgba(255,255,255,.08);
+
+    background: #0F152B;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    transition: .25s;
+
+}
+
+.result-team-card input:focus {
+
+    outline: none;
+
+    border-color: #00AEEF;
+
+    box-shadow: 0 0 0 3px rgba(0,174,239,.18);
+
+}
+
+/* ==========================================================
+   Checkbox
+========================================================== */
+
+.results-checkbox {
+
+    grid-column: span 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+    font-weight: 600;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.results-checkbox input {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media (max-width:900px){
+
+    .results-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .results-checkbox{
+
+        grid-column:span 1;
+
+    }
+
+}
+
+@media (max-width:700px){
+
+    .results-search{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================================================
+   Resultado
+========================================================== */
+
+.result-score {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 90px;
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    background: rgba(0,174,239,.12);
+
+    color: #00AEEF;
+
+    font-weight: 800;
+
+    font-size: 1rem;
+
+}
+
+/* ==========================================================
+   Hover
+========================================================== */
+
+.result-team-card:hover {
+
+    border-color: rgba(0,174,239,.30);
+
+    transform: translateY(-2px);
+
+    transition: .25s;
+
+}

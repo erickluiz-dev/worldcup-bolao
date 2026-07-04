@@ -1,0 +1,338 @@
+  [
+    {
+      "id": 1,
+      "name": "México",
+      "group": "A",
+      "code": "MEX",
+      "flag": "/flags/MEX_.png"
+    },
+    {
+      "id": 2,
+      "name": "República da Coreia",
+      "group": "A",
+      "code": "KOR",
+      "flag": "/flags/KOR.png"
+    },
+    {
+      "id": 3,
+      "name": "Tchéquia",
+      "group": "A",
+      "code": "CZE",
+      "flag": "/flags/CZE.png"
+    },
+    {
+      "id": 4,
+      "name": "África do Sul",
+      "group": "A",
+      "code": "RSA",
+      "flag": "/flags/RSA.png"
+    },
+    {
+      "id": 5,
+      "name": "Canadá",
+      "group": "B",
+      "code": "CAN",
+      "flag": "/flags/CAN.png"
+    },
+    {
+      "id": 6,
+      "name": "Suíça",
+      "group": "B",
+      "code": "SUI",
+      "flag": "/flags/SUI.png"
+    },
+    {
+      "id": 7,
+      "name": "Catar",
+      "group": "B",
+      "code": "QAT",
+      "flag": "/flags/QAT.png"
+    },
+    {
+      "id": 8,
+      "name": "Bósnia e Herzegovina",
+      "group": "B",
+      "code": "BIH",
+      "flag": "/flags/BIH.png"
+    },
+  {
+    "id": 9,
+    "name": "Brasil",
+    "group": "C",
+    "code": "BRA",
+    "flag": "/flags/BRA.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Marrocos",
+    "group": "C",
+    "code": "MAR",
+    "flag": "/flags/MAR.png"
+  },
+  {
+    "id": 11,
+    "name": "Escócia",
+    "group": "C",
+    "code": "SCO",
+    "flag": "/flags/SCO.png"
+  },
+  {
+    "id": 12,
+    "name": "Haiti",
+    "group": "C",
+    "code": "HAI",
+    "flag": "/flags/HAI.png"
+  },
+  {
+    "id": 13,
+    "name": "Estados Unidos",
+    "group": "D",
+    "code": "USA",
+    "flag": "/flags/EUA.png"
+  },
+  {
+    "id": 14,
+    "name": "Austrália",
+    "group": "D",
+    "code": "AUS",
+    "flag": "/flags/AUS.png"
+  },
+  {
+    "id": 15,
+    "name": "Paraguai",
+    "group": "D",
+    "code": "PAR",
+    "flag": "/flags/PAR.png"
+  },
+  {
+    "id": 16,
+    "name": "Turquia",
+    "group": "D",
+    "code": "TUR",
+    "flag": "/flags/TUR.png"
+  },
+  {
+    "id": 17,
+    "name": "Alemanha",
+    "group": "E",
+    "code": "GER",
+    "flag": "/flags/GER.png"
+  },
+  {
+    "id": 18,
+    "name": "Costa do Marfim",
+    "group": "E",
+    "code": "CIV",
+    "flag": "/flags/CIV.png"
+  },
+  {
+    "id": 19,
+    "name": "Equador",
+    "group": "E",
+    "code": "ECU",
+    "flag": "/flags/ECU.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Curaçau",
+    "group": "E",
+    "code": "CUW",
+    "flag": "/flags/CUW.png"
+  },
+  {
+    "id": 21,
+    "name": "Holanda",
+    "group": "F",
+    "code": "NED",
+    "flag": "/flags/NED.png"
+  },
+  {
+    "id": 22,
+    "name": "Japão",
+    "group": "F",
+    "code": "JPN",
+    "flag": "/flags/JPN.png"
+  },
+  {
+    "id": 23,
+    "name": "Suécia",
+    "group": "F",
+    "code": "SWE",
+    "flag": "/flags/SWE.png"
+  },
+  {
+    "id": 24,
+    "name": "Tunísia",
+    "group": "F",
+    "code": "TUN",
+    "flag": "/flags/TUN.png"
+  },
+  {
+    "id": 25,
+    "name": "Egito",
+    "group": "G",
+    "code": "EGY",
+    "flag": "/flags/EGY.png"
+  },
+  {
+    "id": 26,
+    "name": "Irã",
+    "group": "G",
+    "code": "IRN",
+    "flag": "/flags/IRN.png"
+  },
+  {
+    "id": 27,
+    "name": "Bélgica",
+    "group": "G",
+    "code": "BEL",
+    "flag": "/flags/BEL.png"
+  },
+  {
+    "id": 28,
+    "name": "Nova Zelândia",
+    "group": "G",
+    "code": "NZL",
+    "flag": "/flags/NZL.png"
+  },
+  {
+    "id": 29,
+    "name": "Espanha",
+    "group": "H",
+    "code": "ESP",
+    "flag": "/flags/ESP.png"
+  },
+  {
+    "id": 30,
+    "name": "Uruguai",
+    "group": "H",
+    "code": "URU",
+    "flag": "/flags/URU.png"
+  },
+  {
+    "id": 31,
+    "name": "Cabo Verde",
+    "group": "H",
+    "code": "CPV",
+    "flag": "/flags/CPV.png"
+  },
+  {
+    "id": 32,
+    "name": "Arábia Saudita",
+    "group": "H",
+    "code": "KSA",
+    "flag": "/flags/KSA.png"
+  },
+  {
+    "id": 33,
+    "name": "França",
+    "group": "I",
+    "code": "FRA",
+    "flag": "/flags/FRA.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Noruega",
+    "group": "I",
+    "code": "NOR",
+    "flag": "/flags/NOR.png"
+  },
+  {
+    "id": 35,
+    "name": "Senegal",
+    "group": "I",
+    "code": "SEN",
+    "flag": "/flags/SEN.png"
+  },
+  {
+    "id": 36,
+    "name": "Iraque",
+    "group": "I",
+    "code": "IRQ",
+    "flag": "/flags/IRQ.png"
+  },
+  {
+    "id": 37,
+    "name": "Argentina",
+    "group": "J",
+    "code": "ARG",
+    "flag": "/flags/ARG.png"
+  },
+  {
+    "id": 38,
+    "name": "Áustria",
+    "group": "J",
+    "code": "AUT",
+    "flag": "/flags/AUT.png"
+  },
+  {
+    "id": 39,
+    "name": "Argélia",
+    "group": "J",
+    "code": "ALG",
+    "flag": "/flags/ALG.png"
+  },
+  {
+    "id": 40,
+    "name": "Jordânia",
+    "group": "J",
+    "code": "JOR",
+    "flag": "/flags/JOR.png"
+  },
+  {
+    "id": 41,
+    "name": "Colômbia",
+    "group": "K",
+    "code": "COL",
+    "flag": "/flags/COL.png"
+  },
+  {
+    "id": 42,
+    "name": "Portugal",
+    "group": "K",
+    "code": "POR",
+    "flag": "/flags/POR.png"
+  },
+  {
+    "id": 43,
+    "name": "República Democrática do Congo",
+    "group": "K",
+    "code": "COD",
+    "flag": "/flags/COD.png"
+  },
+  {
+    "id": 44,
+    "name": "Uzbequistão",
+    "group": "K",
+    "code": "UZB",
+    "flag": "/flags/UZB.png"
+  },
+  {
+    "id": 45,
+    "name": "Inglaterra",
+    "group": "L",
+    "code": "ENG",
+    "flag": "/flags/ENG.png"
+  },
+  {
+    "id": 46,
+    "name": "Gana",
+    "group": "L",
+    "code": "GHA",
+    "flag": "/flags/GHA.png"
+  },
+  {
+    "id": 47,
+    "name": "Croácia",
+    "group": "L",
+    "code": "CRO",
+    "flag": "/flags/CRO.png"
+  },
+  {
+    "id": 48,
+    "name": "Panamá",
+    "group": "L",
+    "code": "PAN",
+    "flag": "/flags/PAN.png"
+  }
+  ]

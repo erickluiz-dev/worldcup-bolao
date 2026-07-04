@@ -1,0 +1,135 @@
+/* ==========================================================
+   Cabeçalho da Página
+========================================================== */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin-bottom: 32px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================================
+   Informações
+========================================================== */
+
+.page-header-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+/* ==========================================================
+   Título
+========================================================== */
+
+.page-header-title {
+
+    margin: 0;
+
+    font-size: 2.3rem;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    letter-spacing: -.5px;
+
+}
+
+/* ==========================================================
+   Subtítulo
+========================================================== */
+
+.page-header-subtitle {
+
+    margin-top: 10px;
+
+    color: #8A93B2;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    max-width: 650px;
+
+}
+
+/* ==========================================================
+   Área de ações
+========================================================== */
+
+.page-header-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+/* ==========================================================
+   Botões dentro do Header
+========================================================== */
+
+.page-header-actions .primary-button{
+
+    min-width:180px;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media (max-width: 900px){
+
+    .page-header{
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .page-header-title{
+
+        font-size: 2rem;
+
+    }
+
+    .page-header-subtitle{
+
+        font-size: .95rem;
+
+    }
+
+    .page-header-actions{
+
+        width:100%;
+
+    }
+
+    .page-header-actions>*{
+
+        width:100%;
+
+    }
+
+}

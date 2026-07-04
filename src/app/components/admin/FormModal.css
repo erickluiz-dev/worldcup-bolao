@@ -1,0 +1,328 @@
+/* ==========================================================
+   Overlay
+========================================================== */
+
+.form-modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.72);
+
+    backdrop-filter: blur(6px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 9999;
+
+    animation: overlayFade .25s ease;
+
+}
+
+/* ==========================================================
+   Modal
+========================================================== */
+
+.form-modal {
+
+    background: #11162B;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    animation: modalShow .25s ease;
+
+    max-width: 95vw;
+
+}
+
+/* ==========================================================
+   Cabeçalho
+========================================================== */
+
+.form-modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 24px 28px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+.form-modal-header h2 {
+
+    margin: 0;
+
+    color: rgb(255, 255, 255);
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================================
+   Botão fechar
+========================================================== */
+
+.form-modal-close {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #2e323f;
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    transition: .2s;
+
+}
+
+.form-modal-close:hover {
+
+    background: rgba(196,30,58,.18);
+
+    color: white;
+
+}
+
+/* ==========================================================
+   Corpo
+========================================================== */
+
+.form-modal-body {
+
+    padding: 30px;
+
+}
+
+/* ==========================================================
+   Rodapé
+========================================================== */
+
+.form-modal-footer {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 14px;
+
+    padding: 24px 28px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+}
+
+/* ==========================================================
+   Botão cancelar
+========================================================== */
+
+.form-modal-cancel {
+
+    border: none;
+
+    background: #232C49;
+
+    color: white;
+
+    padding: 12px 22px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .25s;
+
+}
+
+.form-modal-cancel:hover {
+
+    background: #2F3B63;
+
+}
+
+/* ==========================================================
+   Botão salvar
+========================================================== */
+
+.form-modal-submit {
+
+    border: none;
+
+    background: #C41E3A;
+
+    color: white;
+
+    padding: 12px 26px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: .25s;
+
+}
+
+.form-modal-submit:hover {
+
+    background: #A71731;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 24px rgba(196,30,58,.30);
+
+}
+
+.form-modal-submit:disabled,
+.form-modal-cancel:disabled,
+.form-modal-close:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+/* ==========================================================
+   Scroll interno
+========================================================== */
+
+.form-modal-body {
+
+    max-height: 70vh;
+
+    overflow-y: auto;
+
+}
+
+.form-modal-body::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+.form-modal-body::-webkit-scrollbar-thumb {
+
+    background: #2F3B63;
+
+    border-radius: 20px;
+
+}
+
+/* ==========================================================
+   Animações
+========================================================== */
+
+@keyframes overlayFade {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes modalShow {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-25px) scale(.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media(max-width:768px){
+
+    .form-modal{
+
+        width:100% !important;
+
+    }
+
+    .form-modal-header{
+
+        padding:20px;
+
+    }
+
+    .form-modal-body{
+
+        padding:20px;
+
+    }
+
+    .form-modal-footer{
+
+        padding:20px;
+
+        flex-direction:column-reverse;
+
+    }
+
+    .form-modal-footer button{
+
+        width:100%;
+
+    }
+
+}

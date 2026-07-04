@@ -1,0 +1,31 @@
+node_modules
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+backend/.env
+
+# Node
+node_modules/
+dist/
+
+# Vite
+.vite/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Banco SQLite (caso exista)
+*.db
+*.sqlite3
+
+# Alembic cache
+backend/alembic/__pycache__/
+
+# Sistema
+.DS_Store
+Thumbs.db

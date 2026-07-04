@@ -1,0 +1,405 @@
+/* ==========================================================
+   Toolbar
+========================================================== */
+
+.matches-toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+
+    gap: 16px;
+
+}
+
+/* ==========================================================
+   Pesquisa
+========================================================== */
+
+.matches-search {
+
+    width: 380px;
+
+    max-width: 100%;
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: #11162B;
+
+    color: white;
+
+    font-size: .95rem;
+
+    transition: .25s;
+
+}
+
+.matches-search::placeholder {
+
+    color: #7D87A7;
+
+}
+
+.matches-search:focus {
+
+    outline: none;
+
+    border-color: #00AEEF;
+
+    box-shadow: 0 0 0 3px rgba(0,174,239,.18);
+
+}
+
+/* ==========================================================
+   Botão Principal
+========================================================== */
+
+.admin-primary-button {
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 12px;
+
+    background: #00AEEF;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.admin-primary-button:hover {
+
+    background: #0095D1;
+
+    transform: translateY(-2px);
+
+}
+
+/* ==========================================================
+   Times
+========================================================== */
+
+.match-team {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-weight: 600;
+
+}
+
+.match-team img {
+
+    width: 34px;
+
+    height: 34px;
+
+    object-fit: contain;
+
+}
+
+/* ==========================================================
+   Formulário
+========================================================== */
+
+.match-form {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 20px;
+
+}
+
+/* ==========================================================
+   Grupo
+========================================================== */
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.form-group label {
+
+    color: #A8B0CA;
+
+    font-size: .92rem;
+
+    font-weight: 600;
+
+}
+
+/* ==========================================================
+   Campos
+========================================================== */
+
+.form-group input,
+
+.form-group select {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: #0F152B;
+
+    color: white;
+
+    transition: .25s;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus {
+
+    outline: none;
+
+    border-color: #00AEEF;
+
+    box-shadow: 0 0 0 3px rgba(0,174,239,.18);
+
+}
+
+/* ==========================================================
+   Linha dupla
+========================================================== */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 20px;
+
+    grid-column: span 2;
+
+}
+
+/* ==========================================================
+   Checkbox
+========================================================== */
+
+.form-checkbox {
+
+    grid-column: span 2;
+
+    margin-top: 8px;
+
+}
+
+.form-checkbox label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+.form-checkbox input {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media (max-width:900px){
+
+    .match-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+        grid-column:span 1;
+
+    }
+
+    .form-checkbox{
+
+        grid-column:span 1;
+
+    }
+
+}
+
+@media (max-width:700px){
+
+    .matches-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .matches-search{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================================================
+   Badge da Fase
+========================================================== */
+
+.stage-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    background:#00AEEF20;
+
+    color:#00AEEF;
+
+}
+
+/* ==========================================================
+   Grupo
+========================================================== */
+
+.group-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:32px;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    background:#C41E3A20;
+
+    color:#C41E3A;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   Rodada
+========================================================== */
+
+.round-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:36px;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    background:#753BBD20;
+
+    color:#753BBD;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   Status
+========================================================== */
+
+.match-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+.match-status.finished{
+
+    background:#00A55020;
+
+    color:#00A550;
+
+}
+
+.match-status.pending{
+
+    background:#F5821F20;
+
+    color:#F5821F;
+
+}

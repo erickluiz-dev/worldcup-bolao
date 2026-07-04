@@ -1,0 +1,138 @@
+/* ==========================================================
+   Empty State
+========================================================== */
+
+.empty-state {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 30px;
+
+    background: #11162B;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==========================================================
+   Ícone
+========================================================== */
+
+.empty-state-icon {
+
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3.5rem;
+
+    margin-bottom: 28px;
+
+    border-radius: 50%;
+
+    background: rgba(196,30,58,.12);
+
+    border: 2px solid rgba(196,30,58,.25);
+
+}
+
+/* ==========================================================
+   Título
+========================================================== */
+
+.empty-state-title {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+}
+
+/* ==========================================================
+   Descrição
+========================================================== */
+
+.empty-state-description {
+
+    margin-top: 14px;
+
+    max-width: 500px;
+
+    color: #8A93B2;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+}
+
+/* ==========================================================
+   Ação
+========================================================== */
+
+.empty-state-action {
+
+    margin-top: 36px;
+
+}
+
+/* ==========================================================
+   Botão
+========================================================== */
+
+.empty-state-action .primary-button {
+
+    min-width: 220px;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .empty-state {
+
+        padding: 50px 20px;
+
+    }
+
+    .empty-state-icon {
+
+        width: 90px;
+        height: 90px;
+
+        font-size: 3rem;
+
+    }
+
+    .empty-state-title {
+
+        font-size: 1.6rem;
+
+    }
+
+    .empty-state-description {
+
+        font-size: .95rem;
+
+    }
+
+}

@@ -1,0 +1,99 @@
+
+[
+  {
+    "id": 1,
+    "name": "Estádio Azteca",
+    "city": "Cidade do México",
+    "country": "México"
+  },
+  {
+    "id": 2,
+    "name": "Estadio Guadalajara",
+    "city": "Guadalajara",
+    "country": "México"
+  },
+  {
+    "id": 3,
+    "name": "Estadio BBVA",
+    "city": "Monterrey",
+    "country": "México"
+  },
+  {
+    "id": 4,
+    "name": "BMO Field",
+    "city": "Toronto",
+    "country": "Canadá"
+  },
+  {
+    "id": 5,
+    "name": "BC Place",
+    "city": "Vancouver",
+    "country": "Canadá"
+  },
+  {
+    "id": 6,
+    "name": "MetLife Stadium",
+    "city": "Nova Jersey",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 7,
+    "name": "AT&T Stadium",
+    "city": "Arlington",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 8,
+    "name": "NRG Stadium",
+    "city": "Houston",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 9,
+    "name": "Mercedes-Benz Stadium",
+    "city": "Atlanta",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 10,
+    "name": "Hard Rock Stadium",
+    "city": "Miami",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 11,
+    "name": "Lincoln Financial Field",
+    "city": "Filadélfia",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 12,
+    "name": "Gillette Stadium",
+    "city": "Boston",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 13,
+    "name": "Lumen Field",
+    "city": "Seattle",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 14,
+    "name": "Levi's Stadium",
+    "city": "Santa Clara",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 15,
+    "name": "SoFi Stadium",
+    "city": "Los Angeles",
+    "country": "Estados Unidos"
+  },
+  {
+    "id": 16,
+    "name": "Arrowhead Stadium",
+    "city": "Kansas City",
+    "country": "Estados Unidos"
+  }
+]

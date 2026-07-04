@@ -1,0 +1,287 @@
+/* ==========================================================
+   Overlay
+========================================================== */
+
+.confirm-dialog-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 24px;
+
+    background: rgba(0,0,0,.72);
+
+    backdrop-filter: blur(6px);
+
+    z-index: 9999;
+
+    animation: overlayFade .25s ease;
+
+}
+
+/* ==========================================================
+   Janela
+========================================================== */
+
+.confirm-dialog {
+
+    width: 430px;
+
+    max-width: 95vw;
+
+    background: #11162B;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    padding: 34px;
+
+    text-align: center;
+
+    box-shadow: 0 30px 60px rgba(0,0,0,.45);
+
+    animation: dialogShow .25s ease;
+
+}
+
+/* ==========================================================
+   Ícone
+========================================================== */
+
+.confirm-dialog-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(196,30,58,.12);
+
+    border: 2px solid rgba(196,30,58,.25);
+
+    font-size: 2.5rem;
+
+}
+
+/* ==========================================================
+   Título
+========================================================== */
+
+.confirm-dialog-title {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 1.6rem;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================================
+   Mensagem
+========================================================== */
+
+.confirm-dialog-message {
+
+    margin-top: 14px;
+
+    color: #8A93B2;
+
+    line-height: 1.7;
+
+}
+
+/* ==========================================================
+   Botões
+========================================================== */
+
+.confirm-dialog-actions {
+
+    display: flex;
+
+    gap: 14px;
+
+    justify-content: center;
+
+    margin-top: 32px;
+
+}
+
+.confirm-dialog-actions button {
+
+    flex: 1;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: .25s;
+
+}
+
+/* ==========================================================
+   Cancelar
+========================================================== */
+
+.confirm-dialog-cancel {
+
+    background: #232C49;
+
+    color: white;
+
+}
+
+.confirm-dialog-cancel:hover {
+
+    background: #313D66;
+
+}
+
+/* ==========================================================
+   Confirmar
+========================================================== */
+
+.confirm-dialog-confirm {
+
+    color: white;
+
+}
+
+/* Vermelho */
+
+.confirm-dialog-confirm.danger {
+
+    background: #C41E3A;
+
+}
+
+.confirm-dialog-confirm.danger:hover {
+
+    background: #A61731;
+
+}
+
+/* Laranja */
+
+.confirm-dialog-confirm.warning {
+
+    background: #F5821F;
+
+}
+
+.confirm-dialog-confirm.warning:hover {
+
+    background: #D96E0A;
+
+}
+
+/* Azul */
+
+.confirm-dialog-confirm.primary {
+
+    background: #0069D9;
+
+}
+
+.confirm-dialog-confirm.primary:hover {
+
+    background: #0057B8;
+
+}
+
+/* ==========================================================
+   Disabled
+========================================================== */
+
+.confirm-dialog button:disabled {
+
+    opacity: .65;
+
+    cursor: not-allowed;
+
+}
+
+/* ==========================================================
+   Responsivo
+========================================================== */
+
+@media(max-width:700px){
+
+    .confirm-dialog{
+
+        padding:26px 20px;
+
+    }
+
+    .confirm-dialog-actions{
+
+        flex-direction:column-reverse;
+
+    }
+
+}
+
+/* ==========================================================
+   Animações
+========================================================== */
+
+@keyframes overlayFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes dialogShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px) scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
