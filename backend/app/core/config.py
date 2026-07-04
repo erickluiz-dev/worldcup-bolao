@@ -9,10 +9,10 @@ env_file = BASE_DIR / ".env"
 
 load_dotenv(env_file)
 
-#load_dotenv()
-
 
 class Settings:
+
+    DATABASE_URL = os.getenv("DATABASE_URL")
 
     DATABASE_HOST = os.getenv(
         "DATABASE_HOST",
