@@ -1,0 +1,97 @@
+.notification-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.70);
+
+    z-index:999999;
+}
+
+.notification-card{
+
+    width:80vw;
+
+    max-width:900px;
+
+    min-height:300px;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    animation:popup .4s;
+}
+
+.notification-card h1{
+
+    font-size:48px;
+
+    margin-bottom:30px;
+}
+
+.notification-card p{
+
+    font-size:28px;
+
+    line-height:1.5;
+}
+
+.notification-card.info{
+
+    background:#1565c0;
+}
+
+.notification-card.success{
+
+    background:#2e7d32;
+}
+
+.notification-card.warning{
+
+    background:#f9a825;
+}
+
+.notification-card.error{
+
+    background:#c62828;
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}

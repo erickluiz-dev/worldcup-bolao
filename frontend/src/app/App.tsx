@@ -4,10 +4,26 @@ import { router } from "./routes";
 
 import { AuthProvider } from "./context/AuthContext";
 
+import { NotificationProvider } from "./notifications/NotificationContext";
+
+import NotificationOverlay from "./components/NotificationOverlay";
+
 export default function App() {
+
     return (
+
         <AuthProvider>
-            <RouterProvider router={router} />
+
+            <NotificationProvider>
+
+                <RouterProvider router={router} />
+
+                <NotificationOverlay />
+
+            </NotificationProvider>
+
         </AuthProvider>
+
     );
+
 }
