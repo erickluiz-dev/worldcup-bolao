@@ -1,68 +1,71 @@
 import "./NotificationOverlay.css";
 import { useEffect, useState } from "react";
 
-type NotificationType =
-  | "success"
-  | "warning"
-  | "error"
-  | "info";
+import { useNotification } from "./NotificationContext";
 
-interface NotificationOverlayProps {
-  visible: boolean;
-  title: string;
-  message: string;
-  type: NotificationType;
-  duration?: number;
-  onClose?: () => void;
-}
+export default function NotificationOverlay() {
 
-export default function NotificationOverlay({
-  visible,
-  title,
-  message,
-  type,
-  duration = 5000,
-  onClose,
-}: NotificationOverlayProps) {
+    const {
 
-  const [show, setShow] = useState(false);
+        currentNotification,
 
-  useEffect(() => {
+        nextNotification,
 
-    if (!visible) return;
+    } = useNotification();
 
-    setShow(true);
+    const [show, setShow] = useState(false);
 
-    const timer = setTimeout(() => {
+    useEffect(() => {
 
-      setShow(false);
+        if (!currentNotification) return;
 
-      if (onClose) {
-        setTimeout(onClose, 400);
-      }
+        setShow(true);
 
-    }, duration);
+        const timer = setTimeout(() => {
 
-    return () => clearTimeout(timer);
+            setShow(false);
 
-  }, [visible, duration, onClose]);
+            setTimeout(() => {
 
-  if (!visible && !show) return null;
+                nextNotification();
 
-  return (
+            }, 400);
 
-    <div className={`notification-backdrop ${show ? "show" : "hide"}`}>
+        }, 5000);
 
-      <div className={`notification-card ${type}`}>
+        return () => clearTimeout(timer);
 
-        <h1>{title}</h1>
+    }, [currentNotification]);
 
-        <p>{message}</p>
+    if (!currentNotification)
+        return null;
 
-      </div>
+    return (
 
-    </div>
+        <div
+            className={`notification-backdrop ${show ? "show" : "hide"}`}
+        >
 
-  );
+            <div
+                className={`notification-card ${currentNotification.type}`}
+            >
+
+                <h1>
+
+                    {currentNotification.title}
+
+                </h1>
+
+                <p>
+
+                    {currentNotification.message}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    );
 
 }
