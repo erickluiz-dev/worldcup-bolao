@@ -3,6 +3,9 @@ from sqlalchemy.orm import Session
 from app.models_db.match import Match
 from app.repositories.match_repository import MatchRepository
 
+from app.repositories.user_repository import UserRepository
+from app.repositories.team_repository import TeamRepository
+from app.services.notification_service import NotificationService
 
 class MatchService:
 
@@ -221,10 +224,42 @@ class MatchService:
                 "Uma seleção não pode jogar contra ela mesma."
             )
 
-        return MatchRepository.create(
+        # Salva a partida
+        created_match = MatchRepository.create(
             db,
             match,
         )
+
+        # Busca os nomes das seleções
+        home_team = TeamRepository.get_by_id(
+            db,
+            created_match.home_team_id,
+        )
+
+        away_team = TeamRepository.get_by_id(
+            db,
+            created_match.away_team_id,
+        )
+
+        # Busca todos os usuários
+        users = UserRepository.get_all(db)
+
+        # Cria uma notificação para cada usuário
+        for user in users:
+
+            NotificationService.notify_new_match(
+
+                db=db,
+
+                user_id=user.id,
+
+                home_team=home_team.name,
+
+                away_team=away_team.name,
+
+            )
+
+        return created_match
 
     # ==========================================================
     # ATUALIZAÇÃO
