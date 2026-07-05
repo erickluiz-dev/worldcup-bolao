@@ -4,6 +4,8 @@ import { useAuth } from "../../context/AuthContext";
 
 import "./AdminDashboard.css";
 
+import NotificationOverlay from "../notifications/NotificationOverlay";
+
 export default function AdminDashboard() {
     const { user } = useAuth();
 
@@ -45,6 +47,8 @@ export default function AdminDashboard() {
             icon: "🏆",
         },
     ];
+
+   const [showNotification, setShowNotification] = useState(true);
 
     return (
         <div className="admin-dashboard">
