@@ -84,7 +84,7 @@
 
 .notification-card.success{
 
-    background:#16a34a;
+    background:#11162B;
 
 }
 
@@ -92,7 +92,7 @@
 
 .notification-card.info{
 
-    background:#2563eb;
+    background:#11162B;
 
 }
 
@@ -100,7 +100,7 @@
 
 .notification-card.error{
 
-    background:#dc2626;
+    background:#11162B;
 
 }
 
@@ -108,6 +108,6 @@
 
 .notification-card.warning{
 
-    background:#ca8a04;
+    background:#11162B;
 
 }

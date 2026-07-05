@@ -102,7 +102,7 @@ class NotificationService:
 
             title="🏟️ Nova partida disponível",
 
-            message=f"{home_team} x {away_team}. Faça seu palpite antes do início da partida.",
+            message=f"{home_team} x {away_team}." f"Faça seu palpite antes do início da partida.",
 
             notification_type="info",
 
@@ -123,7 +123,7 @@ class NotificationService:
 
         if points == 3:
 
-            title = "🏆 Parabéns!"
+            title = "🏆 Aqui temos um Alpha!"
 
             message = (
                 f"Você acertou o placar de "
@@ -135,7 +135,7 @@ class NotificationService:
 
         elif points == 1:
 
-            title = "⚽ Resultado publicado"
+            title = "⚽ Parabéns"
 
             message = (
                 f"Você acertou o vencedor de "
@@ -147,7 +147,7 @@ class NotificationService:
 
         else:
 
-            title = "❌ Resultado publicado"
+            title = "❌ Brutal! Acabou pro Beta"
 
             message = (
                 f"Você não pontuou na partida "
