@@ -102,7 +102,10 @@ class NotificationService:
 
             title="🏟️ Nova partida disponível",
 
-            message=f"{home_team} x {away_team}." f"Faça seu palpite antes do início da partida.",
+            message=(
+                f"{home_team} x {away_team}." 
+                f"Faça seu palpite antes do início da partida.",
+            )
 
             notification_type="info",
 
