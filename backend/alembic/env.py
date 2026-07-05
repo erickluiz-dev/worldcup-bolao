@@ -16,6 +16,7 @@ from app.models_db.team import Team
 from app.models_db.stadium import Stadium
 from app.models_db.match import Match
 from app.models_db.prediction import Prediction
+from app.models_db.notification import Notification
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

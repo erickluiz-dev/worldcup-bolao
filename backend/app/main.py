@@ -9,7 +9,7 @@ from app.api.results import router as results_router
 from app.api.ranking import router as ranking_router
 from app.api.auth import router as auth_router
 from app.api import users
-
+from app.api.notifications import router as notifications_router
 
 
 app = FastAPI(
@@ -80,3 +80,9 @@ def health():
     return {
         "status": "ok"
     }
+
+# ==========================================================
+# Notificações
+# ==========================================================
+
+app.include_router(notifications_router)
