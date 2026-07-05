@@ -6,7 +6,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 import { NotificationProvider } from "./notifications/NotificationContext";
 
-import NotificationOverlay from "./components/NotificationOverlay";
+import NotificationOverlay from "./notifications/NotificationOverlay";
 
 export default function App() {
 
