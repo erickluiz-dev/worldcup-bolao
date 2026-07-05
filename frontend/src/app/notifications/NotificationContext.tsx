@@ -13,7 +13,7 @@ import {
     markAsRead,
 } from "../services/notificationService";
 
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 interface NotificationContextType {
 

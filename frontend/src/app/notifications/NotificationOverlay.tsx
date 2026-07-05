@@ -49,8 +49,6 @@ export default function NotificationOverlay({
 
   if (!visible && !show) return null;
 
-  console.log(currentNotification);
-  
   return (
 
     <div className={`notification-backdrop ${show ? "show" : "hide"}`}>
