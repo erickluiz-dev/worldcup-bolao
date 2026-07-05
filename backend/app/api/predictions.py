@@ -121,15 +121,11 @@ def save_prediction(
     """
 
     prediction_db = Prediction(
-
         user_id=prediction.user_id,
-
         match_id=prediction.match_id,
-
         home_score=prediction.home_score,
-
         away_score=prediction.away_score,
-
+        points=0,
     )
 
     saved_prediction = PredictionService.save_prediction(

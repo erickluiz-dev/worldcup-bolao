@@ -97,8 +97,8 @@ class PredictionService:
 
             existing.home_score = prediction.home_score
             existing.away_score = prediction.away_score
-            existing.points = prediction.points
-
+                # Os pontos serão recalculados quando o resultado oficial
+                # da partida for processado.
             return PredictionRepository.update(
                 db,
                 existing,
@@ -173,7 +173,8 @@ class PredictionService:
 
                 existing.home_score = prediction.home_score
                 existing.away_score = prediction.away_score
-                existing.points = prediction.points
+                  # Os pontos serão recalculados quando o resultado oficial
+                  # da partida for processado.
 
                 PredictionRepository.update(
                     db,
