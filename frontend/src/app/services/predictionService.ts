@@ -1,6 +1,6 @@
 import { Prediction } from "../types/Prediction";
 
-const API_URL = `${import.meta.env.VITE_API_URL}/predictions/`;
+const API_URL = `${import.meta.env.VITE_API_URL}/predictions`;
 
 export async function getPredictions(): Promise<Prediction[]> {
   const response = await fetch(API_URL);
@@ -27,7 +27,7 @@ export async function getPredictionsByUser(
 export async function savePrediction(
   prediction: Prediction
 ): Promise<Prediction> {
-  const response = await fetch(API_URL, {
+  const response = await fetch(`${API_URL}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
