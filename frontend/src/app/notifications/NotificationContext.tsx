@@ -58,11 +58,15 @@ export function NotificationProvider({
             const data =
                 await getUnreadNotifications(user.id);
 
+            console.log("Notificações recebidas:", data);
+
             setNotifications(data);
 
             if (data.length > 0) {
 
                 setCurrentNotification(data[0]);
+
+                console.log("Notificação atual:", data[0]);
 
             } else {
 
