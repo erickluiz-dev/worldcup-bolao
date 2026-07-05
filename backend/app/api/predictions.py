@@ -108,7 +108,7 @@ def get_predictions_by_match(
 # ==========================================================
 
 @router.post(
-    "/",
+    "",
     response_model=PredictionRead,
     status_code=status.HTTP_201_CREATED,
 )
