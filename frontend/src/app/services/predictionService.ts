@@ -1,6 +1,6 @@
 import { Prediction } from "../types/Prediction";
 
-const API_URL = `${import.meta.env.VITE_API_URL}/predictions`;
+const API_URL = `${import.meta.env.VITE_API_URL}/predictions/`;
 
 export async function getPredictions(): Promise<Prediction[]> {
   const response = await fetch(API_URL);
