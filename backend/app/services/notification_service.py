@@ -105,7 +105,7 @@ class NotificationService:
             message=(
                 f"{home_team} x {away_team}." 
                 f"Faça seu palpite antes do início da partida.",
-            )
+            ),
 
             notification_type="info",
 
