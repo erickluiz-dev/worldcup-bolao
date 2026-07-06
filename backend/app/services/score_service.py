@@ -2,7 +2,8 @@ from sqlalchemy.orm import Session
 
 from app.services.match_service import MatchService
 from app.services.prediction_service import PredictionService
-
+from app.services.notification_service import NotificationService
+from app.services.user_service import UserService
 
 class ScoreService:
     """
@@ -52,6 +53,31 @@ class ScoreService:
             predictions,
         )
 
+    # ==========================================================
+    # Notificar usuários
+    # ==========================================================
+    
+        for prediction in predictions:
+        
+            user = UserService.get_user_by_id(
+                db,
+                prediction.user_id,
+            )
+        
+            if user is None:
+                continue
+        
+            NotificationService.notify_match_result(
+        
+                db=db,
+        
+                user_id=user.id,
+        
+                match=match,
+        
+                points=prediction.points,
+        
+            )
     # ==========================================================
     # Recalcular tudo
     # ==========================================================
