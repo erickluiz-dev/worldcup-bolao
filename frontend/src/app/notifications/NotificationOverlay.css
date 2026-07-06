@@ -1,40 +1,33 @@
 .notification-backdrop{
 
-    position:fixed;
+    position: fixed;
 
-    top:0;
-    left:0;
+    inset: 0;
 
-    width:100vw;
-    height:100vh;
+    display: flex;
 
-    background:rgba(0,0,0,.55);
+    justify-content: center;
 
-    display:flex;
+    align-items: center;
 
-    justify-content:center;
-    align-items:center;
+    background: rgba(0,0,0,.75);
 
-    z-index:9999;
+    z-index: 999999;
 
-    transition:.4s;
+    padding: 20px;
 }
 
 .notification-card{
 
-    width:70%;
+    width: min(92vw,700px);
 
-    max-width:900px;
+    min-height: 240px;
 
-    min-height:280px;
+    border-radius: 24px;
 
-    border-radius:25px;
+    padding: 32px;
 
-    padding:50px;
-
-    color:white;
-
-    text-align:center;
+    box-sizing: border-box;
 
     display:flex;
 
@@ -42,28 +35,33 @@
 
     justify-content:center;
 
-    transform:scale(.85);
+    align-items:center;
 
-    transition:.4s;
+    text-align:center;
 
-    box-shadow:0 0 35px rgba(0,0,0,.4);
+    overflow-wrap: break-word;
 
+    word-break: break-word;
+
+    white-space: normal;
 }
 
 .notification-card h1{
 
-    font-size:3rem;
+    font-size: clamp(28px,5vw,48px);
 
-    margin-bottom:30px;
+    margin-bottom:20px;
 
+    line-height:1.2;
 }
 
 .notification-card p{
 
-    font-size:1.6rem;
+    font-size: clamp(18px,3vw,28px);
 
-    line-height:1.6;
+    line-height:1.5;
 
+    max-width:100%;
 }
 
 .show .notification-card{
@@ -109,5 +107,31 @@
 .notification-card.warning{
 
     background:#11162B;
+
+}
+
+@media (max-width:768px){
+
+    .notification-card{
+
+        width:95vw;
+
+        padding:24px;
+
+        min-height:220px;
+
+    }
+
+    .notification-card h1{
+
+        font-size:30px;
+
+    }
+
+    .notification-card p{
+
+        font-size:20px;
+
+    }
 
 }
