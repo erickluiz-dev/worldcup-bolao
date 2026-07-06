@@ -58,7 +58,7 @@ class ScoreService:
     # ==========================================================
     
         for prediction in predictions:
-        
+
             user = UserService.get_user_by_id(
                 db,
                 prediction.user_id,
@@ -67,13 +67,15 @@ class ScoreService:
             if user is None:
                 continue
         
-            NotificationService.notify_match_result(
+            NotificationService.notify_result(
         
                 db=db,
         
                 user_id=user.id,
         
-                match=match,
+                home_team=match.home_team.name,
+        
+                away_team=match.away_team.name,
         
                 points=prediction.points,
         
