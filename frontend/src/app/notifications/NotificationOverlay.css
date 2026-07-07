@@ -1,136 +1,262 @@
-.notification-backdrop{
+/* ==========================================================
+   Container
+========================================================== */
+
+.notification-wrapper{
 
     position: fixed;
 
-    inset: 0;
+    top: 16px;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: rgba(0,0,0,.75);
+    right: 16px;
 
     z-index: 999999;
 
-    padding: 20px;
+    display: flex;
+
+    flex-direction: column;
+
+    pointer-events: none;
+
 }
+
+/* ==========================================================
+   Card
+========================================================== */
 
 .notification-card{
 
-    width: min(92vw,700px);
+    width: 384px;
 
-    min-height: 240px;
+    overflow: hidden;
 
-    border-radius: 24px;
+    border-radius: 20px;
 
-    padding: 32px;
+    background: #18181B;
 
-    box-sizing: border-box;
+    color: #FFF;
+
+    pointer-events: auto;
+
+    backdrop-filter: blur(18px);
+
+}
+
+/* ==========================================================
+   Barra superior
+========================================================== */
+
+.notification-accent{
+
+    width:100%;
+
+    height:3px;
+
+}
+
+/* ==========================================================
+   Conteúdo
+========================================================== */
+
+.notification-content{
 
     display:flex;
 
-    flex-direction:column;
+    align-items:flex-start;
 
-    justify-content:center;
+    gap:16px;
+
+    padding:20px;
+
+}
+
+/* ==========================================================
+   Ícone
+========================================================== */
+
+.notification-icon{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
 
     align-items:center;
 
-    text-align:center;
+    justify-content:center;
 
-    overflow-wrap: break-word;
+    flex-shrink:0;
 
-    word-break: break-word;
-
-    white-space: normal;
 }
 
-.notification-card h1{
+/* ==========================================================
+   Texto
+========================================================== */
 
-    font-size: clamp(28px,5vw,48px);
+.notification-text{
 
-    margin-bottom:20px;
+    flex:1;
 
-    line-height:1.2;
+    min-width:0;
+
 }
 
-.notification-card p{
+.notification-title{
 
-    font-size: clamp(18px,3vw,28px);
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:.05em;
+
+    font-family:"Barlow Condensed",sans-serif;
+
+}
+
+.notification-body{
+
+    margin-top:8px;
+
+}
+
+.notification-description{
+
+    font-size:13px;
+
+    color:rgba(255,255,255,.70);
+
+    line-height:1.45;
+
+    margin:0;
+
+}
+
+.notification-match{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    color:#FFF;
 
     line-height:1.5;
 
-    max-width:100%;
-}
+    font-weight:600;
 
-.show .notification-card{
-
-    transform:scale(1);
+    word-break:break-word;
 
 }
 
-.hide{
+/* ==========================================================
+   Botão X
+========================================================== */
 
-    opacity:0;
+.notification-close{
 
-    pointer-events:none;
+    width:28px;
+
+    height:28px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.06);
+
+    color:rgba(255,255,255,.60);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.notification-close:hover{
+
+    background:rgba(255,255,255,.14);
+
+    color:white;
+
+    transform:rotate(90deg);
 
 }
 
-/* Verde */
-
-.notification-card.success{
-
-    background:#11162B;
-
-}
-
-/* Azul */
-
-.notification-card.info{
-
-    background:#11162B;
-
-}
-
-/* Vermelho */
-
-.notification-card.error{
-
-    background:#11162B;
-
-}
-
-/* Amarelo */
-
-.notification-card.warning{
-
-    background:#11162B;
-
-}
+/* ==========================================================
+   Mobile
+========================================================== */
 
 @media (max-width:768px){
 
+    .notification-wrapper{
+
+        left:12px;
+
+        right:12px;
+
+        top:12px;
+
+    }
+
     .notification-card{
 
-        width:95vw;
-
-        padding:24px;
-
-        min-height:220px;
+        width:100%;
 
     }
 
-    .notification-card h1{
+}
 
-        font-size:30px;
+/* ==========================================================
+   Telas muito pequenas
+========================================================== */
+
+@media (max-width:420px){
+
+    .notification-content{
+
+        padding:18px;
+
+        gap:14px;
 
     }
 
-    .notification-card p{
+    .notification-icon{
 
-        font-size:20px;
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .notification-title{
+
+        font-size:16px;
+
+    }
+
+    .notification-description{
+
+        font-size:12px;
+
+    }
+
+    .notification-match{
+
+        font-size:13px;
 
     }
 

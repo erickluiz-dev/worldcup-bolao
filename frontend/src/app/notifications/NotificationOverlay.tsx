@@ -1,7 +1,90 @@
-import "./NotificationOverlay.css";
 import { useEffect, useState } from "react";
 
+import { motion, AnimatePresence } from "motion/react";
+
+import {
+    X,
+    Swords,
+    Star,
+    Check,
+    CircleOff,
+} from "lucide-react";
+
+import "./NotificationOverlay.css";
+
 import { useNotification } from "./NotificationContext";
+
+const CONFIG = {
+
+    info: {
+
+        icon: <Swords className="size-4" />,
+
+        iconBg: "#003DA5",
+
+        iconColor: "#FFFFFF",
+
+        accentColor: "#00AEEF",
+
+        title: "Nova Partida",
+
+        subtitle:
+            "Faça seu palpite antes do início da partida.",
+
+    },
+
+    success: {
+
+        icon: <Star className="size-4" />,
+
+        iconBg: "#FDC300",
+
+        iconColor: "#000000",
+
+        accentColor: "#FDC300",
+
+        title: "+3 Pontos",
+
+        subtitle:
+            "Aqui temos um Alpha! Você previu o placar correto.",
+
+    },
+
+    warning: {
+
+        icon: <Check className="size-4" />,
+
+        iconBg: "#00A550",
+
+        iconColor: "#FFFFFF",
+
+        accentColor: "#00A550",
+
+        title: "+1 Ponto",
+
+        subtitle:
+            "Você acertou o vencedor da partida!",
+
+    },
+
+    error: {
+
+        icon: <CircleOff className="size-4" />,
+
+        iconBg: "#E8192C",
+
+        iconColor: "#FFFFFF",
+
+        accentColor: "#E8192C",
+
+        title: "+0 Pontos",
+
+        subtitle:
+            "Brutal! Acabou pro Beta. Seu palpite não acertou dessa vez.",
+
+    },
+
+} as const;
 
 export default function NotificationOverlay() {
 
@@ -13,59 +96,223 @@ export default function NotificationOverlay() {
 
     } = useNotification();
 
-    const [show, setShow] = useState(false);
+    const [visible, setVisible] =
+        useState(false);
 
     useEffect(() => {
 
-        if (!currentNotification) return;
+        if (!currentNotification)
+            return;
 
-        setShow(true);
+        setVisible(true);
 
         const timer = setTimeout(() => {
 
-            setShow(false);
-
-            setTimeout(() => {
-
-                nextNotification();
-
-            }, 400);
+            closeNotification();
 
         }, 5000);
 
         return () => clearTimeout(timer);
 
-    }, [currentNotification]);
+    }, [currentNotification, nextNotification]);
 
-    if (!currentNotification)
-        return null;
+    function closeNotification() {
 
-    return (
+        setVisible(false);
 
-        <div
-            className={`notification-backdrop ${show ? "show" : "hide"}`}
-        >
+        setTimeout(() => {
 
-            <div
-                className={`notification-card ${currentNotification.type}`}
-            >
+            nextNotification();
 
-                <h1>
+        }, 350);
 
-                    {currentNotification.title}
+    }
 
-                </h1>
+    if (!currentNotification){
 
-                <p>
+        setVisible(false);
 
-                    {currentNotification.message}
+        return;
 
-                </p>
+    }
 
-            </div>
+    const cfg =
+        CONFIG[currentNotification.type];
+    
+return (
+
+    <div className="notification-wrapper">
+
+        <AnimatePresence mode="wait">
+
+            {visible && (
+
+                <motion.div
+
+                    key={currentNotification.id}
+
+                    layout
+
+                    initial={{
+                        opacity: 0,
+                        x: 64,
+                        scale: 0.92,
+                    }}
+
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        scale: 1,
+                    }}
+
+                    exit={{
+                        opacity: 0,
+                        x: 64,
+                        scale: 0.92,
+                    }}
+
+                    transition={{
+                        type: "spring",
+                        stiffness: 320,
+                        damping: 28,
+                    }}
+
+                    className="notification-card"
+
+                    style={{
+
+                        border: `1px solid ${cfg.accentColor}30`,
+
+                        boxShadow: `
+
+                            0 8px 32px rgba(0,0,0,.50),
+
+                            0 0 0 1px ${cfg.accentColor}15
+
+                        `,
+
+                    }}
+
+                >
+
+                    {/* Barra superior */}
+
+                    <div
+
+                        className="notification-accent"
+
+                        style={{
+
+                            backgroundColor:
+                                cfg.accentColor,
+
+                        }}
+
+                    />
+
+                    <div className="notification-content">
+
+                        {/* Ícone */}
+
+                        <div
+
+                            className="notification-icon"
+
+                            style={{
+
+                                background:
+                                    cfg.iconBg,
+
+                                color:
+                                    cfg.iconColor,
+
+                            }}
+
+                        >
+
+                            {cfg.icon}
+
+                        </div>
+
+                        {/* Texto */}
+
+                        <div className="notification-text">
+
+                            <p
+
+                                className="notification-title"
+
+                                style={{
+
+                                    color:
+                                        cfg.accentColor,
+
+                                }}
+
+                            >
+
+                                {cfg.title}
+
+                            </p>
+
+                            <div className="notification-body">
+
+                                {currentNotification.type === "info" ? (
+
+                                    <p className="notification-match">
+
+                                        {currentNotification.message}
+
+                                    </p>
+
+                                ) : (
+
+                                    <>
+                                        <p className="notification-description">
+
+                                            {cfg.subtitle}
+
+                                        </p>
+
+                                        <p className="notification-match">
+
+                                            {currentNotification.message}
+
+                                        </p>
+                                    </>
+
+                                )}
+
+                            </div>
+
+                        </div>
+
+                        {/* Botão Fechar */}
+
+                        <button
+
+                            onClick={closeNotification}
+
+                            className="notification-close"
+
+                            aria-label="Fechar notificação"
+
+                        >
+
+                            <X className="size-4" />
+
+                        </button>
+
+                    </div>
+
+                </motion.div>
+
+                )}
+
+            </AnimatePresence>
 
         </div>
 
     );
 
-}
+    }

@@ -100,10 +100,11 @@ class NotificationService:
 
             user_id=user_id,
 
-            title="🏟️ Nova partida disponível",
+            #🏟️ Nova partida disponível
+
+            title="",
 
             message=f"{home_team} x {away_team}. ",                
-            message=f"Faça seu palpite antes do início da partida.",
 
             notification_type="info",
 
@@ -124,37 +125,32 @@ class NotificationService:
 
         if points == 3:
 
-            title = "🏆 Aqui temos um Alpha!"
+            #🏆 Aqui temos um Alpha!
 
-            message = (
-                f"Você acertou o placar de "
-                f"{home_team} x {away_team} "
-                f"e ganhou 3 pontos!"
-            )
+            title = ""
+
+            message =f"{home_team} x {away_team} "
 
             notification_type = "success"
 
         elif points == 1:
 
-            title = "⚽ Parabéns"
+            #⚽ Parabéns
 
-            message = (
-                f"Você acertou o vencedor de "
-                f"{home_team} x {away_team} "
-                f"e ganhou 1 ponto!"
-            )
+            title = ""
+
+            message = f"{home_team} x {away_team} "
 
             notification_type = "warning"
 
         else:
 
-            title = "❌ Brutal! Acabou pro Beta"
+            #❌ Brutal! Acabou pro Beta
 
-            message = (
-                f"Você não pontuou na partida "
-                f"{home_team} x {away_team}."
-            )
+            title = ""
 
+            message = f"{home_team} x {away_team}."
+            
             notification_type = "error"
 
         return NotificationService.create_notification(
