@@ -426,7 +426,7 @@ export function MyPredictions() {
           <br />
 
           ✔ Participação:
-          <strong> 0 ponto</strong>
+          <strong> 0 pontos</strong>
 
         </p>
 
