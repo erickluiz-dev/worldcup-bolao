@@ -34,19 +34,23 @@ class ScoreService:
             match_id,
         )
 
-        for prediction in predictions:
+        prediction.points = ScoreService.calculate_points(
 
-            prediction.points = ScoreService.calculate_points(
+            prediction.home_score,
 
-                prediction.home_score,
+            prediction.away_score,
 
-                prediction.away_score,
+            match.home_score,
 
-                match.home_score,
+            match.away_score,
 
-                match.away_score,
+            match.qualified_team_id,
 
-            )
+            match.home_team_id,
+
+            match.away_team_id,
+
+        )
 
         PredictionService.save_all_predictions(
             db,
@@ -144,9 +148,17 @@ class ScoreService:
 
         official_away: int,
 
+        qualified_team_id: int | None,
+
+        home_team_id: int,
+
+        away_team_id: int,
+
     ) -> int:
 
-        # Placar exato
+        # ======================================================
+        # 3 pontos - placar exato
+        # ======================================================
 
         if (
 
@@ -159,6 +171,50 @@ class ScoreService:
         ):
 
             return 3
+
+        # ======================================================
+        # Partidas empatadas
+        # ======================================================
+
+        if official_home == official_away:
+
+            # Acertou que seria empate
+            if predicted_home == predicted_away:
+
+                return 1
+
+            # Apostou na vitória do time que se classificou
+            if qualified_team_id is not None:
+
+                if (
+
+                    predicted_home > predicted_away
+
+                    and
+
+                    qualified_team_id == home_team_id
+
+                ):
+
+                    return 1
+
+                if (
+
+                    predicted_away > predicted_home
+
+                    and
+
+                    qualified_team_id == away_team_id
+
+                ):
+
+                    return 1
+
+            return 0
+
+        # ======================================================
+        # Regra normal
+        # ======================================================
 
         predicted_result = (
 

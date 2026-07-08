@@ -34,4 +34,6 @@ class MatchResponse(BaseModel):
 
     away_score: Optional[int]
 
+    qualified_team_id: Optional[int]
+
     finished: bool

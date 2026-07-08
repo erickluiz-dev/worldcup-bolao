@@ -19,6 +19,7 @@ class MatchCreate(BaseModel):
 
     home_score: Optional[int] = None
     away_score: Optional[int] = None
+    qualified_team_id: Optional[int] = None
 
     finished: bool = False
 
@@ -31,6 +32,7 @@ class MatchResult(BaseModel):
 
     home_score: int
     away_score: int
+    qualified_team_id: Optional[int] = None
 
 
 class MatchRead(BaseModel):
@@ -55,5 +57,6 @@ class MatchRead(BaseModel):
 
     home_score: Optional[int]
     away_score: Optional[int]
+    qualified_team_id: Optional[int]
 
     finished: bool

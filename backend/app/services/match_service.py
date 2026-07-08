@@ -315,6 +315,10 @@ class MatchService:
 
         match.finished = updated_match.finished
 
+        match.qualified_team_id = (
+            updated_match.qualified_team_id
+        )
+
         return MatchRepository.update(
             db,
             match,
@@ -358,6 +362,7 @@ class MatchService:
         match_id: int,
         home_score: int,
         away_score: int,
+        qualified_team_id: int | None,
     ) -> Match:
 
         match = MatchRepository.get_by_id(
@@ -376,10 +381,38 @@ class MatchService:
             raise ValueError(
                 "O placar não pode ser negativo."
             )
+        
+        # Empates em fases eliminatórias
+        # precisam informar quem avançou.
+
+        if (
+
+            home_score == away_score
+
+            and
+
+            match.stage != "GROUP"
+
+            and
+
+            qualified_team_id is None
+
+        ):
+
+            raise ValueError(
+
+                "Informe qual seleção avançou."
+
+            )
 
         match.home_score = home_score
 
         match.away_score = away_score
+
+        # Em partidas empatadas da fase eliminatória
+        # o administrador informa quem avançou.
+
+        match.qualified_team_id = qualified_team_id
 
         match.finished = True
 

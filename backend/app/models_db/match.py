@@ -103,6 +103,11 @@ class Match(Base):
         nullable=True,
     )
 
+    qualified_team_id: Mapped[int | None] = mapped_column(
+        ForeignKey("teams.id"),
+        nullable=True,
+    )
+
     finished: Mapped[bool] = mapped_column(
         Boolean,
         default=False,
@@ -140,6 +145,11 @@ class Match(Base):
         back_populates="away_matches",
     )
 
+    qualified_team = relationship(
+        "Team",
+        foreign_keys=[qualified_team_id],
+    )
+
     stadium = relationship(
         "Stadium",
         back_populates="matches",
@@ -170,7 +180,7 @@ class Match(Base):
     def winner_id(self) -> int | None:
 
         if not self.has_result:
-            return None
+            return None 
 
         if self.home_score > self.away_score:
             return self.home_team_id
@@ -178,7 +188,7 @@ class Match(Base):
         if self.away_score > self.home_score:
             return self.away_team_id
 
-        return None
+        return self.qualified_team_id
 
     @property
     def is_draw(self) -> bool:
@@ -194,6 +204,7 @@ class Match(Base):
             f"id={self.id}, "
             f"home_team_id={self.home_team_id}, "
             f"away_team_id={self.away_team_id}, "
-            f"stage='{self.stage}'"
+            f"stage='{self.stage}', "
+            f"qualified_team_id={self.qualified_team_id}"
             f")>"
         )

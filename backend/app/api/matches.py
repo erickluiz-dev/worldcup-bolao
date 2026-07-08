@@ -61,6 +61,8 @@ def to_match_response(
 
         away_score=match.away_score,
 
+        qualified_team_id=match.qualified_team_id,
+
         finished=match.finished,
 
     )
@@ -231,6 +233,8 @@ def create_match(
 
         away_score=data.away_score,
 
+        qualified_team_id=data.qualified_team_id,
+
         finished=data.finished,
 
     )
@@ -290,6 +294,8 @@ def update_match(
         home_score=data.home_score,
 
         away_score=data.away_score,
+
+        qualified_team_id=data.qualified_team_id,
 
         finished=data.finished,
 
@@ -384,6 +390,8 @@ def publish_result(
             result.home_score,
 
             result.away_score,
+
+            result.qualified_team_id,
 
         )
 
