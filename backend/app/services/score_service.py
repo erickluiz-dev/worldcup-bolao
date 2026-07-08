@@ -34,23 +34,25 @@ class ScoreService:
             match_id,
         )
 
-        prediction.points = ScoreService.calculate_points(
+        for prediction in predictions:
 
-            prediction.home_score,
+            prediction.points = ScoreService.calculate_points(
 
-            prediction.away_score,
+                prediction.home_score,
 
-            match.home_score,
+                prediction.away_score,
 
-            match.away_score,
+                match.home_score,
 
-            match.qualified_team_id,
+                match.away_score,
 
-            match.home_team_id,
+                match.qualified_team_id,
 
-            match.away_team_id,
+                match.home_team_id,
 
-        )
+                match.away_team_id,
+
+            )
 
         PredictionService.save_all_predictions(
             db,
@@ -122,6 +124,12 @@ class ScoreService:
                 match.home_score,
 
                 match.away_score,
+
+                match.qualified_team_id,
+
+                 match.home_team_id,
+
+                match.away_team_id,
 
             )
 
