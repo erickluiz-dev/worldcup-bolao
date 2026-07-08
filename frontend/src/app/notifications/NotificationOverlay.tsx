@@ -14,6 +14,10 @@ import "./NotificationOverlay.css";
 
 import { useNotification } from "./NotificationContext";
 
+import { getTeams } from "../services/teamService";
+
+import type { Team } from "../types/Team";
+
 const CONFIG = {
 
     info: {
@@ -99,6 +103,8 @@ export default function NotificationOverlay() {
     const [visible, setVisible] =
         useState(false);
 
+    const [teams, setTeams] = useState<Team[]>([]);
+
     useEffect(() => {
 
         if (!currentNotification)
@@ -115,6 +121,28 @@ export default function NotificationOverlay() {
         return () => clearTimeout(timer);
 
     }, [currentNotification, nextNotification]);
+
+    useEffect(() => {
+
+        async function loadTeams() {
+
+            try {
+
+                const data = await getTeams();
+
+                setTeams(data);
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        }
+
+        loadTeams();
+
+    }, []);
 
     function closeNotification() {
 

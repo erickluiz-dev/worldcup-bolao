@@ -127,7 +127,7 @@ class ScoreService:
 
                 match.qualified_team_id,
 
-                 match.home_team_id,
+                match.home_team_id,
 
                 match.away_team_id,
 
