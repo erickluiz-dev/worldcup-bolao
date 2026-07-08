@@ -56,6 +56,8 @@ export interface Match {
 
     away_score?: number;
 
+    qualified_team_id?: number;
+
     /**
      * Indica se a partida foi finalizada.
      */
@@ -103,6 +105,8 @@ export interface CreateMatchRequest {
 
     away_score?: number;
 
+    qualified_team_id?: number;
+
     finished: boolean;
 
 }
@@ -135,6 +139,8 @@ export interface UpdateMatchRequest {
 
     away_score?: number;
 
+    qualified_team_id?: number;
+
     finished: boolean;
 
 }
@@ -146,6 +152,8 @@ export interface MatchResult {
     home_score: number;
 
     away_score: number;
+
+    qualified_team_id?: number;
 
     finished: boolean;
 }

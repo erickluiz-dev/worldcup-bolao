@@ -128,17 +128,20 @@ export default function NotificationOverlay() {
 
     }
 
-    if (!currentNotification){
+    if (!currentNotification) {
 
-        setVisible(false);
-
-        return;
+        return null;
 
     }
 
     const cfg =
-        CONFIG[currentNotification.type];
-    
+        CONFIG[currentNotification.type as keyof typeof CONFIG];
+
+    if (!cfg) {
+
+        return null;
+
+    }
 return (
 
     <div className="notification-wrapper">

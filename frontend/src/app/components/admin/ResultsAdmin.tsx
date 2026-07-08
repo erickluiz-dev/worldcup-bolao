@@ -50,6 +50,7 @@ export default function ResultsAdmin() {
         useState<MatchResult>({
             home_score: 0,
             away_score: 0,
+            qualified_team_id: undefined,
             finished: false,
         });
 
@@ -296,6 +297,9 @@ export default function ResultsAdmin() {
             away_score:
                 match.away_score ?? 0,
 
+            qualified_team_id:
+                match.qualified_team_id,
+
             finished:
                 match.finished,
 
@@ -322,6 +326,8 @@ export default function ResultsAdmin() {
             home_score: 0,
 
             away_score: 0,
+
+            qualified_team_id: undefined,
 
             finished: false,
 
@@ -641,6 +647,76 @@ export default function ResultsAdmin() {
                         />
 
                     </div>
+
+                    {form.home_score === form.away_score && (
+
+                        <div className="qualified-team">
+
+                            <h3>
+                                Quem avançou?
+                            </h3>
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="qualified"
+
+                                    checked={
+                                        form.qualified_team_id ===
+                                        selectedMatch?.home_team.id
+                                    }
+
+                                    onChange={() =>
+
+                                        updateField(
+
+                                            "qualified_team_id",
+
+                                            selectedMatch!.home_team.id
+
+                                        )
+
+                                    }
+
+                                />
+
+                                {selectedMatch?.home_team.name}
+
+                            </label>
+
+                            <label>
+
+                                <input
+                                    type="radio"
+                                    name="qualified"
+
+                                    checked={
+                                        form.qualified_team_id ===
+                                        selectedMatch?.away_team.id
+                                    }
+
+                                    onChange={() =>
+
+                                        updateField(
+
+                                            "qualified_team_id",
+
+                                            selectedMatch!.away_team.id
+
+                                        )
+
+                                    }
+
+                                />
+
+                                {selectedMatch?.away_team.name}
+
+                            </label>
+
+                        </div>
+
+                    )}
 
                     {/* =======================
                         Publicado
