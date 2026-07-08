@@ -209,8 +209,8 @@ class MatchService:
 
         )
         # ==========================================================
-    # CADASTRO
-    # ==========================================================
+        # CADASTRO
+        # ==========================================================
 
     @staticmethod
     def create_match(
@@ -252,6 +252,8 @@ class MatchService:
                 db=db,
 
                 user_id=user.id,
+
+                match_id=created_match.id,
 
                 home_team=home_team.name,
 

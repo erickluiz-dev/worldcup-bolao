@@ -16,6 +16,8 @@ import { useNotification } from "./NotificationContext";
 
 import { getTeams } from "../services/teamService";
 
+import { getMatches } from "../services/matchService";
+
 import type { Team } from "../types/Team";
 
 const CONFIG = {
@@ -105,6 +107,8 @@ export default function NotificationOverlay() {
 
     const [teams, setTeams] = useState<Team[]>([]);
 
+    const [matches, setMatches] = useState<Match[]>([]);
+
     useEffect(() => {
 
         if (!currentNotification)
@@ -124,13 +128,21 @@ export default function NotificationOverlay() {
 
     useEffect(() => {
 
-        async function loadTeams() {
+        async function loadData() {
 
             try {
 
-                const data = await getTeams();
+                const [teamsData, matchesData] = await Promise.all([
 
-                setTeams(data);
+                    getTeams(),
+
+                    getMatches(),
+
+                ]);
+
+                setTeams(teamsData);
+
+                setMatches(matchesData);
 
             } catch (error) {
 
@@ -140,7 +152,7 @@ export default function NotificationOverlay() {
 
         }
 
-        loadTeams();
+        loadData();
 
     }, []);
 
@@ -170,6 +182,25 @@ export default function NotificationOverlay() {
         return null;
 
     }
+
+    const match = matches.find(
+
+        m => m.id === currentNotification.match_id
+
+    );
+
+    const homeTeam = teams.find(
+
+        t => t.id === match?.home_team.id
+
+    );
+
+    const awayTeam = teams.find(
+
+        t => t.id === match?.away_team.id
+
+    );
+
 return (
 
     <div className="notification-wrapper">
@@ -290,13 +321,65 @@ return (
 
                                 {currentNotification.type === "info" ? (
 
-                                    <p className="notification-match">
+                                    <div className="notification-match-row">
 
-                                        {currentNotification.message}
+                                        <div className="notification-team">
 
-                                    </p>
+                                            {homeTeam && (
+
+                                                <img
+                                                    src={`/flags/${homeTeam.flag}`}
+                                                    alt={homeTeam.name}
+                                                    className="notification-flag"
+                                                />
+
+                                            )}
+
+                                            <span>{homeTeam?.name}</span>
+
+                                        </div>
+
+                                        <span className="notification-vs">
+
+                                            VS
+
+                                        </span>
+
+                                        <div className="notification-team">
+
+                                            <span>{awayTeam?.name}</span>
+
+                                            {awayTeam && (
+
+                                                <img
+                                                    src={`/flags/${awayTeam.flag}`}
+                                                    alt={awayTeam.name}
+                                                    className="notification-flag"
+                                                />
+
+                                            )}
+
+                                        </div>
+
+                                    </div>
 
                                 ) : (
+
+                                    <>
+                                        <p className="notification-description">
+
+                                            {cfg.subtitle}
+
+                                        </p>
+
+                                        <p className="notification-match">
+
+                                            {currentNotification.message}
+
+                                        </p>
+                                    </>
+
+                                )}
 
                                     <>
                                         <p className="notification-description">

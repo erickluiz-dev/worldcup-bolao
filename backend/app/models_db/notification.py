@@ -15,6 +15,7 @@ from sqlalchemy.orm import (
 
 from app.core.database import Base
 
+from typing import Optional
 
 class Notification(Base):
 
@@ -57,6 +58,16 @@ class Notification(Base):
         nullable=False,
     )
 
+    # ==========================================================
+    # Partida relacionada
+    # ==========================================================
+
+    match_id: Mapped[Optional[int]] = mapped_column(
+        ForeignKey("matches.id"),
+        nullable=True,
+        index=True,
+    )
+
     # success | warning | error | info
     type: Mapped[str] = mapped_column(
         String(20),
@@ -86,4 +97,8 @@ class Notification(Base):
     user = relationship(
         "User",
         back_populates="notifications",
+    )
+
+    match = relationship(
+        "Match",
     )

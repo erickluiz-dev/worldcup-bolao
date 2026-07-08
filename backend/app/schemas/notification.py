@@ -15,6 +15,8 @@ class NotificationBase(BaseModel):
 
     type: str
 
+    match_id: int | None = None
+
 
 # ==========================================================
 # CREATE
@@ -22,7 +24,7 @@ class NotificationBase(BaseModel):
 
 class NotificationCreate(NotificationBase):
 
-    user_id: int
+    user_id: int    
 
 
 # ==========================================================
@@ -43,6 +45,8 @@ class NotificationRead(NotificationBase):
     id: int
 
     user_id: int
+
+    match_id: int | None = None
 
     is_read: bool
 

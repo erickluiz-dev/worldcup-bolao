@@ -61,6 +61,7 @@ class NotificationService:
         title: str,
         message: str,
         notification_type: str,
+        match_id: int | None = None,
     ) -> Notification:
 
         notification = Notification(
@@ -72,6 +73,8 @@ class NotificationService:
             message=message,
 
             type=notification_type,
+
+            match_id=match_id,
 
             is_read=False,
 
@@ -90,37 +93,41 @@ class NotificationService:
     def notify_new_match(
         db: Session,
         user_id: int,
+        match_id: int,
         home_team: str,
         away_team: str,
     ) -> Notification:
 
+        
         return NotificationService.create_notification(
 
-            db=db,
+        db=db,
 
-            user_id=user_id,
+        user_id=user_id,
 
-            #🏟️ Nova partida disponível
+        #🏟️ Nova partida disponível
 
-            title="",
+        title="",
 
-            message=f"{home_team} x {away_team}. ",                
+        message=f"{home_team} x {away_team}",
 
-            notification_type="info",
+        notification_type="info",
 
-        )
+        match_id=match_id,
+
+    )
 
     # ==========================================================
     # RESULTADO PUBLICADO
     # ==========================================================
 
-    @staticmethod
     def notify_result(
         db: Session,
         user_id: int,
         home_team: str,
         away_team: str,
         points: int,
+        match_id: int | None = None,
     ) -> Notification:
 
         if points == 3:
@@ -164,6 +171,8 @@ class NotificationService:
             message=message,
 
             notification_type=notification_type,
+
+            match_id=match_id,
 
         )
 

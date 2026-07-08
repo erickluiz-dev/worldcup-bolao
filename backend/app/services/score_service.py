@@ -84,6 +84,8 @@ class ScoreService:
                 away_team=match.away_team.name,
         
                 points=prediction.points,
+
+                match_id=match.id
         
             )
     # ==========================================================
