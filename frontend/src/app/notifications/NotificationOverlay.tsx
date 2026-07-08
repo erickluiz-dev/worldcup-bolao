@@ -381,22 +381,6 @@ return (
 
                                 )}
 
-                                    <>
-                                        <p className="notification-description">
-
-                                            {cfg.subtitle}
-
-                                        </p>
-
-                                        <p className="notification-match">
-
-                                            {currentNotification.message}
-
-                                        </p>
-                                    </>
-
-                                )}
-
                             </div>
 
                         </div>
