@@ -211,12 +211,7 @@ export default function Login() {
                         <div>
 
                             <label
-                                className="
-                                    block
-                                    text-sm
-                                    font-medium
-                                    mb-2
-                                "
+                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2 mb-4"
                             >
                                 E-mail
                             </label>
@@ -250,7 +245,7 @@ export default function Login() {
                         <div>
 
                             <label
-                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2 mb-4">
                             
                                 Senha
                             </label>
