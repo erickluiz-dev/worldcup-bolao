@@ -174,7 +174,7 @@ export default function Login() {
                 "
             >
 
-            <div className="w-16 h-16 flex-shrink-0 relative">
+            <div>
 
                 <img
                     src="/taca.png"
