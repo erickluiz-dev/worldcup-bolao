@@ -174,6 +174,16 @@ export default function Login() {
                 "
             >
 
+            <div className="w-16 h-16 flex-shrink-0 relative">
+
+                <img
+                    src="/taca.png"
+                    alt="Copa do Mundo"
+                    className="w-full"
+                />
+
+            </div>
+                
                 <div
                     className="
                         w-full
@@ -197,7 +207,7 @@ export default function Login() {
                         ENTRAR
                     </h2>
 
-                    <p className="text-base font-bold uppercase tracking-widest text-center"
+                    <p className="text-base font-bold uppercase tracking-widest text-center mb-10"
                         style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed', sans-serif" }}>
                         Faça login para acessar
                         o seu bolão.
