@@ -196,7 +196,7 @@ export default function Login() {
                         ENTRAR
                     </h2>
 
-                    <p className="text-base font-bold uppercase tracking-widest text-center""
+                    <p className="text-base font-bold uppercase tracking-widest text-center"
                         style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed', sans-serif" }}>
                         Faça login para acessar
                         o seu bolão.
