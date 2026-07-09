@@ -174,12 +174,12 @@ export default function Login() {
                 "
             >
 
-            <div className="w-full h-full object-contain drop-shadow-2xl">
+            <div className="flex flex-col items-center mb-8">
 
                 <img
                     src="/taca.png"
                     alt="Copa do Mundo"
-                    className="w-full"
+                    className="w-full h-full object-contain drop-shadow-2xl"
                 />
 
             </div>
