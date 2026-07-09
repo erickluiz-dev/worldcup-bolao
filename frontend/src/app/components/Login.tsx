@@ -183,10 +183,11 @@ export default function Login() {
 
                     <h2
                         className="
-                            text-4xl
+                            text-4xl    
                             font-black
                             uppercase
                             mb-2
+                            text-center
                         "
                         style={{
                             fontFamily:
@@ -204,7 +205,7 @@ export default function Login() {
 
                     <form
                         onSubmit={handleSubmit}
-                        className="space-y-6"
+                        className="space-y-7"
                     >
 
                         <div>
@@ -228,7 +229,7 @@ export default function Login() {
                                         e.target.value
                                     )
                                 }
-                                placeholder="Digite seu e-mail"
+                                placeholder="Seu e-mail"
                                 className="
                                     w-full
                                     rounded-xl
@@ -249,13 +250,8 @@ export default function Login() {
                         <div>
 
                             <label
-                                className="
-                                    block
-                                    text-sm
-                                    font-medium
-                                    mb-2 
-                                "
-                            >
+                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                            
                                 Senha
                             </label>
 
@@ -273,7 +269,7 @@ export default function Login() {
                                             e.target.value
                                         )
                                     }
-                                    placeholder="Digite sua senha"
+                                    placeholder="Sua senha"
                                     className="
                                         w-full
                                         rounded-xl
@@ -334,19 +330,13 @@ export default function Login() {
 
                             <button
                                 type="submit"
-                                disabled={loading}
-                                className="
-                                    w-full
-                                    rounded-xl
-                                    bg-primary
-                                    py-3
-                                    font-semibold
-                                    text-primary-foreground
-                                    transition-all
-                                    hover:opacity-90
-                                    disabled:cursor-not-allowed
-                                    disabled:opacity-60
-                                "
+                                className="w-full py-3.5 rounded-xl font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200"
+                                style={{
+                                background: 'linear-gradient(135deg, #C41E3A, #8B1020)',
+                                color: '#fff',
+                                boxShadow: '0 8px 32px rgba(196,30,58,0.4)',
+                                fontFamily: "'Barlow Condensed', sans-serif",
+                                }}
                             >
                                 {loading
                                     ? "Entrando..."
