@@ -183,7 +183,7 @@ export default function Login() {
 
                     <h2
                         className="
-                            text-5xl
+                            text-4xl
                             font-black
                             uppercase
                             mb-2
@@ -193,10 +193,11 @@ export default function Login() {
                                 "'Barlow Condensed', sans-serif",
                         }}
                     >
-                        Entrar
+                        ENTRAR
                     </h2>
 
-                    <p className="text-muted-foreground mb-10">
+                    <p className="text-base font-bold uppercase tracking-widest text-center""
+                        style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed', sans-serif" }}>
                         Faça login para acessar
                         o seu bolão.
                     </p>
@@ -349,7 +350,7 @@ export default function Login() {
                             >
                                 {loading
                                     ? "Entrando..."
-                                    : "Entrar"}
+                                    : "ENTRAR NA DISPUTA >  "}
                             </button>
 
                         </div>
