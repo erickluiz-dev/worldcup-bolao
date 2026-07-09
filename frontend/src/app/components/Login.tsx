@@ -174,7 +174,7 @@ export default function Login() {
                 "
             >
 
-            <div>
+            <div className="w-full h-full object-contain drop-shadow-2xl">
 
                 <img
                     src="/taca.png"
