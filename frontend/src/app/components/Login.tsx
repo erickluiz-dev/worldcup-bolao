@@ -173,16 +173,6 @@ export default function Login() {
                     p-8
                 "
             >
-
-            <div className="w-24 h-24 mb-4">
-
-                <img
-                    src="/taca.png"
-                    alt="Copa do Mundo"
-                    className="w-full h-full object-contain drop-shadow-2xl"
-                />
-
-            </div>
                 
                 <div
                     className="
@@ -190,7 +180,16 @@ export default function Login() {
                         max-w-md
                     "
                 >
+                    <div className="w-24 h-24 mb-4">
 
+                        <img
+                            src="/taca.png"
+                            alt="Copa do Mundo"
+                            className="w-full h-full object-contain drop-shadow-2xl"
+                        />
+
+                    </div>
+                    
                     <h2
                         className="
                             text-4xl    
