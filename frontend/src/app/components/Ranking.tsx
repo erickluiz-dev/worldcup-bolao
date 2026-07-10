@@ -69,6 +69,8 @@
           (user) => user.user_id === currentUserId
       ) + 1;
 
+    const lastRank = completeRanking.length;
+
     return (
       <div>
         <div className="mb-8">
@@ -117,6 +119,7 @@
             const rank = index + 1;
             const isCurrentUser = user.user_id === currentUserId;
             const isPodium = rank <= 3;
+            const isLastPlace = rank === lastRank;
             const style = isPodium ? PODIUM_STYLES[rank - 1] : null;
             
 
@@ -129,11 +132,15 @@
                     ? 'rgba(196,30,58,0.08)'
                     : isPodium
                     ? style!.bg
+                    : isLastPlace
+                    ? 'rgba(196,30,58,0.08)'
                     : 'var(--card)',
                   border: isCurrentUser
                     ? '1px solid rgba(196,30,58,0.3)'
                     : isPodium
                     ? `1px solid ${style!.border}`
+                    : isLastPlace
+                    ? '1px solid rgba(196,30,58,0.30)'
                     : '1px solid rgba(255,255,255,0.07)',
                 }}
               >
@@ -142,7 +149,16 @@
                   {isPodium ? (
                     <div>{style!.icon}</div>
                   ) : (
-                    <span className="text-base font-bold text-muted-foreground">{rank}º</span>
+                    <span
+                      className="text-base font-bold"
+                      style={{
+                          color: isLastPlace
+                              ? "#C41E3A"
+                              : "var(--muted-foreground)",
+                      }}
+                  >
+                      {rank}º
+                  </span>
                   )}
                 </div>
 
@@ -169,7 +185,13 @@
                 <div className="flex-1 min-w-0">
                   <span
                     className="font-semibold text-sm truncate block"
-                    style={{ color: isCurrentUser ? '#C41E3A' : isPodium ? style!.text : 'var(--foreground)' }}
+                    style={{ color: isCurrentUser
+                                ? '#C41E3A'
+                                : isPodium
+                                ? style!.text
+                                : isLastPlace
+                                ? '#C41E3A'
+                                : 'var(--foreground)', }}
                   >
                     {user.name}
                     {isCurrentUser && (
@@ -190,7 +212,13 @@
                     className="text-xl font-black"
                     style={{
                       fontFamily: "'Barlow Condensed', sans-serif",
-                      color: isCurrentUser ? '#C41E3A' : isPodium ? style!.text : 'var(--foreground)',
+                      color: isCurrentUser
+                        ? '#C41E3A'
+                        : isPodium
+                        ? style!.text
+                        : isLastPlace
+                        ? '#C41E3A'
+                        : 'var(--foreground)',
                     }}
                   >
                     {user.points}

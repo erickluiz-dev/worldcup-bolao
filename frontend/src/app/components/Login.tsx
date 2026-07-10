@@ -4,6 +4,13 @@ import { Eye, EyeOff, Trophy } from "lucide-react";
 
 import { useAuth } from "../context/AuthContext";
 
+import {
+    Mail,
+    Lock,
+    LogIn,
+    UserPlus,
+} from "lucide-react";
+
 /* ==========================================================
  * Login
  * ========================================================== */
@@ -70,95 +77,14 @@ export default function Login() {
         }
     }
 
+    const RAINBOW_STRIPES = [
+    '#E8192C', '#F5821F', '#FDC300', '#00A550',
+    '#00AEEF', '#003DA5', '#753BBD', '#E5007E',
+    ];
+
     return (
-        <div className="min-h-screen bg-background flex">
 
-            {/* ======================================================
-             * Banner lateral
-             * ====================================================== */}
-
-            <div
-                className="
-                    hidden
-                    lg:flex
-                    w-1/2
-                    relative
-                    overflow-hidden
-                    bg-gradient-to-br
-                    from-red-700
-                    via-red-600
-                    to-red-900
-                    items-center
-                    justify-center
-                    p-12
-                "
-            >
-
-                <div className="absolute inset-0 opacity-10">
-
-                    <div className="absolute top-10 left-10 w-56 h-56 rounded-full border border-white" />
-
-                    <div className="absolute bottom-24 right-12 w-80 h-80 rounded-full border border-white" />
-
-                </div>
-
-                <div className="relative z-10 text-center text-white">
-
-                    <div
-                        className="
-                            w-28
-                            h-28
-                            rounded-full
-                            bg-white/10
-                            flex
-                            items-center
-                            justify-center
-                            mx-auto
-                            mb-8
-                        "
-                    >
-                        <Trophy
-                            size={56}
-                            className="text-yellow-300"
-                        />
-                    </div>
-
-                    <h1
-                        className="
-                            text-6xl
-                            font-black
-                            uppercase
-                            mb-6
-                        "
-                        style={{
-                            fontFamily:
-                                "'Barlow Condensed', sans-serif",
-                        }}
-                    >
-                        Bolão
-                        <br />
-                        Copa do Mundo
-                    </h1>
-
-                    <p
-                        className="
-                            text-lg
-                            leading-8
-                            max-w-md
-                            mx-auto
-                            text-red-100
-                        "
-                    >
-                        Faça seus palpites,
-                        acompanhe a classificação,
-                        dispute com seus amigos
-                        e descubra quem mais entende
-                        de futebol.
-                    </p>
-
-                </div>
-
-            </div>
+        <div className="min-h-screen bg-background flex">            
 
             {/* ======================================================
              * Formulário
@@ -174,28 +100,41 @@ export default function Login() {
                 "
             >
                 
+                
+                
                 <div
                     className="
                         w-full
-                        max-w-md
+                        max-w-[550px]
+                        items-center
+                        mx-auto
                     "
                 >
-                    <div className="w-24 h-24 mb-4">
+                    <div className="absolute top-0 left-0 w-full flex h-2">
+                        {RAINBOW_STRIPES.map((color) => (
+                        <div key={color} className="flex-1" style={{ backgroundColor: color }} />
+                        ))}
+                    </div>
 
+                    <div className="flex h-1.5 w-full">
+                        
+                    </div>
+                    
+                    <div className="w-28 h-28 mx-auto mb-5 container-central">
                         <img
                             src="/taca.png"
                             alt="Copa do Mundo"
-                            className="w-full h-full object-contain drop-shadow-2xl items-center"
+                            className="w-full h-full object-contain drop-shadow-2xl"
                         />
 
                     </div>
 
                     <h2
                         className="
-                            text-4xl    
+                            text-6xl    
                             font-black
                             uppercase
-                            mb-2
+                            mb-1
                             text-center
                         "
                         style={{
@@ -203,179 +142,267 @@ export default function Login() {
                                 "'Barlow Condensed', sans-serif",
                         }}
                     >
-                        ENTRAR
+                        BOLÃO
                     </h2>
 
-                    <p className="text-base font-bold uppercase tracking-widest text-center mb-10"
+                    <p className="text-base font-bold uppercase tracking-widest text-center mb-5"
                         style={{ color: '#C41E3A', fontFamily: "'Barlow Condensed', sans-serif" }}>
-                        Faça login para acessar
-                        o seu bolão.
+                            COPA DO MUNDO 2026
                     </p>
-
-                    <form
-                        onSubmit={handleSubmit}
-                        className="space-y-7"
+                    
+                    <div
+                        className="
+                            rounded-3xl 
+                            border
+                            border-white/10
+                            bg-[#151A32]
+                            shadow-2xl
+                            overflow-hidden
+                            p-5
+                        "
                     >
 
-                        <div>
-
-                            <label
-                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2 mb-4"
-                            >
-                                E-mail
-                            </label>
-
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) =>
-                                    setEmail(
-                                        e.target.value
-                                    )
-                                }
-                                placeholder="Seu e-mail"
-                                className="
-                                    w-full
-                                    rounded-xl
-                                    border
-                                    border-border
-                                    bg-card
-                                    px-4
-                                    py-3
-                                    outline-none
-                                    focus:ring-2
-                                    focus:ring-primary
-                                "
-                                autoComplete="email"
-                            />
-
-                        </div>
-
-                        <div>
-
-                            <label
-                                className="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-2 mb-4">
-                            
-                                Senha
-                            </label>
-
-                            <div className="relative">
-
-                                <input
-                                    type={
-                                        showPassword
-                                            ? "text"
-                                            : "password"
-                                    }
-                                    value={password}
-                                    onChange={(e) =>
-                                        setPassword(
-                                            e.target.value
-                                        )
-                                    }
-                                    placeholder="Sua senha"
-                                    className="
-                                        w-full
-                                        rounded-xl
-                                        border
-                                        border-border:
-                                        bg-card
-                                        px-4
-                                        py-3
-                                        pr-12
-                                        outline-none
-                                        focus:ring-2
-                                        focus:ring-primary
-                                        mb-7
-                                    "
-                                    autoComplete="current-password"
-                                />
-                                    
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setShowPassword(
-                                            !showPassword
-                                        )
-                                    }
-                                    className="
-                                        absolute
-                                        right-4
-                                        top-1/3
-                                        -translate-y-1/2
-                                        text-muted-foreground
-                                    "
-                                >
-                                    {showPassword ? (
-                                        <EyeOff size={20} />
-                                    ) : (
-                                        <Eye size={20} />
-                                    )}
-                                </button>
-
-                            </div>
-                            {error && (
-                                <div
-                                    className="
-                                        rounded-xl
-                                        border
-                                        border-red-500/30
-                                        bg-red-500/10
-                                        px-4
-                                        py-3
-                                        text-sm
-                                        text-red-500
-                                        mb-2.5
-                                    "
-                                >
-                                    {error}
-                                </div>
-                            )}
+                       <div className="grid grid-cols-2 -mx-5 -mt-5 mb-7 h-14">
 
                             <button
-                                type="submit"
-                                className="w-full py-3.5 rounded-xl font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200"
-                                style={{
-                                background: 'linear-gradient(135deg, #C41E3A, #8B1020)',
-                                color: '#fff',
-                                boxShadow: '0 8px 32px rgba(196,30,58,0.4)',
-                                fontFamily: "'Barlow Condensed', sans-serif",
-                                }}
+                                type="button"
+                                onClick={() => navigate("/login")}
+                                className="
+                                    flex
+                                    items-center
+                                    justify-center
+                                    gap-2
+                                    h-full
+                                    font-bold
+                                    text-white
+                                    border-b-2
+                                    border-primary
+                                "
                             >
-                                {loading
-                                    ? "Entrando..."
-                                    : "ENTRAR NA DISPUTA >  "}
+                                <LogIn size={16} />
+                                Entrar
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => navigate("/register")}
+                                className="
+                                    flex
+                                    items-center
+                                    justify-center
+                                    gap-2
+                                    h-full
+                                    font-bold
+                                    text-muted-foreground
+                                    border-b
+                                    border-white/10
+                                    hover:text-white
+                                    transition-colors
+                                "
+                            >
+                                <UserPlus size={16} />
+                                Criar Conta
                             </button>
 
                         </div>
 
-                    </form>
+                        <div className="text-center mb-7">
+                            <p className="text-sm text-muted-foreground">
+                            Faça seus palpites, acompanhe a classificação, dispute com seus amigos e descubra quem mais entende de futebol.
+                            </p>
+                        </div>
 
-                    <div className="mt-8 text-center">
-
-                        <span className="text-muted-foreground">
-                            Ainda não possui uma conta?
-                        </span>
-
-                        <button
-                            type="button"
-                            onClick={() => navigate("/register")}
-                            className="
-                                ml-2
-                                font-semibold
-                                text-primary
-                                hover:underline
-                            "
+                        <form
+                            onSubmit={handleSubmit}
+                            className="space-y-7"
                         >
-                            Cadastre-se
-                        </button>
 
+                            <div>
+
+                               <label
+                                    className="
+                                        flex
+                                        items-center
+                                        gap-2
+                                        text-xs
+                                        font-semibold
+                                        uppercase
+                                        tracking-widest
+                                        text-muted-foreground
+                                        mb-2
+                                    "
+                                >
+                                    <Mail size={15} />
+                                    E-mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) =>
+                                        setEmail(
+                                            e.target.value
+                                        )
+                                    }
+                                    placeholder="Seu e-mail"
+                                    className="
+                                        w-full
+                                        rounded-2xl
+                                        border
+                                        border-border
+                                        bg-card
+                                        px-4
+                                        py-3
+                                        outline-none
+                                        focus:ring-2
+                                        focus:ring-primary
+                                    "
+                                    autoComplete="email"
+                                />
+
+                            </div>
+
+                            <div>
+
+                                <label
+                                    className="
+                                        flex
+                                        items-center
+                                        gap-2
+                                        text-xs
+                                        font-semibold
+                                        uppercase
+                                        tracking-widest
+                                        text-muted-foreground
+                                        mb-2
+                                    "
+                                >
+                                    <Lock size={15} />
+                                    Senha
+                                </label>
+
+                                <div className="relative">
+
+                                    <input
+                                        type={
+                                            showPassword
+                                                ? "text"
+                                                : "password"
+                                        }
+                                        value={password}
+                                        onChange={(e) =>
+                                            setPassword(
+                                                e.target.value
+                                            )
+                                        }
+                                        placeholder="Sua senha"
+                                        className="
+                                            w-full
+                                            rounded-xl
+                                            border
+                                            border-border:
+                                            bg-card
+                                            px-4
+                                            py-4
+                                            pr-12
+                                            outline-none
+                                            focus:ring-2
+                                            focus:ring-primary
+                                            mb-7
+                                        "
+                                        autoComplete="current-password"
+                                    />
+                                        
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setShowPassword(
+                                                !showPassword
+                                            )
+                                        }
+                                        className="
+                                            absolute
+                                            right-4
+                                            top-1/3
+                                            -translate-y-1/2
+                                            text-muted-foreground
+                                        "
+                                    >
+                                        {showPassword ? (
+                                            <EyeOff size={20} />
+                                        ) : (
+                                            <Eye size={20} />
+                                        )}
+                                    </button>
+
+                                </div>
+                                {error && (
+                                    <div
+                                        className="
+                                            rounded-2xl
+                                            border
+                                            border-red-500/30
+                                            bg-red-500/10
+                                            px-4
+                                            py-4
+                                            text-sm
+                                            text-red-500
+                                            mb-2.5
+                                        "
+                                    >
+                                        {error}
+                                    </div>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    className="w-full py-3.5 rounded-xl font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200"
+                                    style={{
+                                    background: 'linear-gradient(135deg, #C41E3A, #8B1020)',
+                                    color: '#fff',
+                                    boxShadow: '0 8px 32px rgba(196,30,58,0.4)',
+                                    fontFamily: "'Barlow Condensed', sans-serif",
+                                    }}
+                                >
+                                    {loading
+                                        ? "Entrando..."
+                                        : "ENTRAR NA DISPUTA >  "}
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <div className="mt-8 text-center">
+
+                            <span className="text-muted-foreground">
+                                Ainda não possui uma conta?
+                            </span>
+
+                            <button
+                                type="button"
+                                onClick={() => navigate("/register")}
+                                className="
+                                    ml-2
+                                    font-semibold
+                                    text-primary
+                                    hover:underline
+                                "
+                            >
+                                Cadastre-se
+                            </button>
+
+                        </div>
                     </div>
-
                 </div>
-
             </div>
 
+            <div className="fixed absolute bottom-0 left-0 w-full flex h-2 z-50">
+                {RAINBOW_STRIPES.map((color) => (
+                <div key={color} className="flex-1" style={{ backgroundColor: color }} />
+                ))}
+            </div>
+            
         </div>
     );
 }
