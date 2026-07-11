@@ -2,6 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
 
+from app.models.match_response import MatchResponse
 
 # ==========================================================
 # BASE
@@ -14,8 +15,6 @@ class NotificationBase(BaseModel):
     message: str
 
     type: str
-
-    match_id: int | None = None
 
 
 # ==========================================================
@@ -46,7 +45,7 @@ class NotificationRead(NotificationBase):
 
     user_id: int
 
-    match_id: int | None = None
+    match: MatchResponse | None = None
 
     is_read: bool
 

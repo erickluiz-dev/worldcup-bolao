@@ -17,12 +17,46 @@ from app.schemas.notification import (
 
 from app.services.notification_service import NotificationService
 
+from app.models.match_response import MatchResponse
 
 router = APIRouter(
     prefix="/api/notifications",
     tags=["Notifications"],
 )
 
+def to_match_response(match):
+
+    if match is None:
+        return None
+
+    return MatchResponse(
+        id=match.id,
+        home_team=match.home_team,
+        away_team=match.away_team,
+        stadium=match.stadium,
+        date=match.date,
+        time=match.time,
+        stage=match.stage,
+        group=match.group,
+        round=match.round,
+        home_score=match.home_score,
+        away_score=match.away_score,
+        qualified_team_id=match.qualified_team_id,
+        finished=match.finished,
+    )
+
+def to_notification_response(notification):
+
+    return NotificationRead(
+        id=notification.id,
+        user_id=notification.user_id,
+        title=notification.title,
+        message=notification.message,
+        type=notification.type,
+        match=to_match_response(notification.match),
+        is_read=notification.is_read,
+        created_at=notification.created_at,
+    )
 
 # ==========================================================
 # GET /
@@ -38,8 +72,12 @@ def get_notifications(
     """
     Retorna todas as notificações.
     """
+    notifications = NotificationService.get_notifications(db)
 
-    return NotificationService.get_notifications(db)
+    return [
+        to_notification_response(notification)
+        for notification in notifications
+    ]
 
 
 # ==========================================================
@@ -70,7 +108,7 @@ def get_notification(
 
         )
 
-    return notification
+    return to_notification_response(notification)
 
 
 # ==========================================================
@@ -86,10 +124,15 @@ def get_notifications_by_user(
     db: Session = Depends(get_db),
 ):
 
-    return NotificationService.get_notifications_by_user(
+    notifications = NotificationService.get_notifications_by_user(
         db,
         user_id,
     )
+
+    return [
+        to_notification_response(notification)
+        for notification in notifications
+    ]
 
 
 # ==========================================================
@@ -105,10 +148,15 @@ def get_unread_notifications(
     db: Session = Depends(get_db),
 ):
 
-    return NotificationService.get_unread_notifications(
+    notifications = NotificationService.get_unread_notifications(
         db,
         user_id,
     )
+
+    return [
+        to_notification_response(notification)
+        for notification in notifications
+    ]
 
 
 # ==========================================================
@@ -142,7 +190,7 @@ def mark_as_read(
 
         )
 
-    return notification
+    return to_notification_response(notification)
 
 
 # ==========================================================

@@ -1,3 +1,5 @@
+import type { Match } from "./Match";
+
 export interface Notification {
 
     id: number;
@@ -14,10 +16,6 @@ export interface Notification {
 
     created_at: string;
 
-    match_id?: number;
-
-    home_team_name?: string;
-
-    away_team_name?: string;
+    match?: Match;
 
 }

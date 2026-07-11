@@ -14,12 +14,6 @@ import "./NotificationOverlay.css";
 
 import { useNotification } from "./NotificationContext";
 
-import { getTeams } from "../services/teamService";
-
-import { getMatches } from "../services/matchService";
-
-import type { Team } from "../types/Team";
-
 const CONFIG = {
 
     info: {
@@ -105,10 +99,6 @@ export default function NotificationOverlay() {
     const [visible, setVisible] =
         useState(false);
 
-    const [teams, setTeams] = useState<Team[]>([]);
-
-    const [matches, setMatches] = useState<Match[]>([]);
-
     useEffect(() => {
 
         if (!currentNotification)
@@ -125,36 +115,6 @@ export default function NotificationOverlay() {
         return () => clearTimeout(timer);
 
     }, [currentNotification, nextNotification]);
-
-    useEffect(() => {
-
-        async function loadData() {
-
-            try {
-
-                const [teamsData, matchesData] = await Promise.all([
-
-                    getTeams(),
-
-                    getMatches(),
-
-                ]);
-
-                setTeams(teamsData);
-
-                setMatches(matchesData);
-
-            } catch (error) {
-
-                console.error(error);
-
-            }
-
-        }
-
-        loadData();
-
-    }, []);
 
     function closeNotification() {
 
@@ -183,23 +143,9 @@ export default function NotificationOverlay() {
 
     }
 
-    const match = matches.find(
+    const homeTeam = currentNotification.match?.home_team;
 
-        m => m.id === currentNotification.match_id
-
-    );
-
-    const homeTeam = teams.find(
-
-        t => t.id === match?.home_team.id
-
-    );
-
-    const awayTeam = teams.find(
-
-        t => t.id === match?.away_team.id
-
-    );
+    const awayTeam = currentNotification.match?.away_team;
 
 return (
 
@@ -328,7 +274,7 @@ return (
                                             {homeTeam && (
 
                                                 <img
-                                                    src={`/flags/${homeTeam.flag}`}
+                                                    src={homeTeam.flag}
                                                     alt={homeTeam.name}
                                                     className="notification-flag"
                                                 />
@@ -352,7 +298,7 @@ return (
                                             {awayTeam && (
 
                                                 <img
-                                                    src={`/flags/${awayTeam.flag}`}
+                                                     src={awayTeam.flag}
                                                     alt={awayTeam.name}
                                                     className="notification-flag"
                                                 />

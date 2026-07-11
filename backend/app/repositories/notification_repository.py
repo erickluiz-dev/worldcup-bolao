@@ -2,6 +2,9 @@ from sqlalchemy.orm import Session
 
 from app.models_db.notification import Notification
 
+from sqlalchemy.orm import Session, joinedload
+
+from app.models_db.match import Match
 
 class NotificationRepository:
 
@@ -16,6 +19,13 @@ class NotificationRepository:
 
         return (
             db.query(Notification)
+            .options(
+                joinedload(Notification.match)
+                    .joinedload(Match.home_team),
+
+                joinedload(Notification.match)
+                    .joinedload(Match.away_team),
+            )
             .order_by(Notification.created_at.desc())
             .all()
         )
@@ -28,9 +38,14 @@ class NotificationRepository:
 
         return (
             db.query(Notification)
-            .filter(
-                Notification.id == notification_id
+            .options(
+                joinedload(Notification.match)
+                    .joinedload(Match.home_team),
+
+                joinedload(Notification.match)
+                    .joinedload(Match.away_team),
             )
+            .filter(Notification.id == notification_id)
             .first()
         )
 
@@ -42,12 +57,15 @@ class NotificationRepository:
 
         return (
             db.query(Notification)
-            .filter(
-                Notification.user_id == user_id
+            .options(
+                joinedload(Notification.match)
+                    .joinedload(Match.home_team),
+
+                joinedload(Notification.match)
+                    .joinedload(Match.away_team),
             )
-            .order_by(
-                Notification.created_at.desc()
-            )
+            .filter(Notification.user_id == user_id)
+            .order_by(Notification.created_at.desc())
             .all()
         )
 
@@ -59,16 +77,20 @@ class NotificationRepository:
 
         return (
             db.query(Notification)
+            .options(
+                joinedload(Notification.match)
+                    .joinedload(Match.home_team),
+
+                joinedload(Notification.match)
+                    .joinedload(Match.away_team),
+            )
             .filter(
                 Notification.user_id == user_id,
                 Notification.is_read == False,
             )
-            .order_by(
-                Notification.created_at.desc()
-            )
+            .order_by(Notification.created_at.desc())
             .all()
         )
-
     # ==========================================================
     # CADASTRO
     # ==========================================================

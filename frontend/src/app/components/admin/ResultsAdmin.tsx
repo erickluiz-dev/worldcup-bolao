@@ -368,6 +368,10 @@ export default function ResultsAdmin() {
 
         }
 
+        console.log("MATCH:", selectedMatch);
+
+        console.log("FORM:", form);
+
         try {
 
             setSaving(true);
