@@ -163,63 +163,55 @@
     return (
       <div>
         <div className="mb-8 flex items-start justify-between gap-4">
-          <div>
-            <h2
-              className="text-5xl font-black uppercase tracking-tight mb-1"
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                color: "#FFFFFF",
-              }}
+
+            <div>
+
+                <h2
+                    className="text-5xl font-black uppercase tracking-tight mb-1"
+                    style={{
+                        fontFamily: "'Barlow Condensed', sans-serif",
+                        color: "#FFFFFF",
+                    }}
+                >
+                    Ranking
+                </h2>
+
+                <p className="text-gray-400">
+                    Veja como você está se saindo em relação aos outros participantes
+                </p>
+
+            </div>
+
+            <button
+                onClick={handleShare}
+                disabled={generating}
+                className="
+                    h-12
+                    px-7
+                    rounded-2xl
+                    flex
+                    items-center
+                    gap-3
+                    font-bold
+                    transition-all
+                    hover:scale-105
+                    active:scale-95
+                "
+                style={{
+                    background:
+                        "linear-gradient(90deg,#E8192C,#C41E3A)",
+                    color:"#FFF",
+                    boxShadow:
+                        "0 8px 28px rgba(232,25,44,.35)",
+                }}
             >
-              Ranking
-            </h2>
-            <p className="text-gray-400">
-              Veja como você está se saindo em relação aos outros participantes
-            </p>    
+                <Share2 className="size-5" />
 
-        <button
+                {generating ? "Gerando..." : "Compartilhar"}
 
-              onClick={handleShare}
+            </button>
 
-              disabled={generating}
-
-              className="
-                  h-12
-                  px-7
-                  rounded-2xl
-                  flex
-                  items-center
-                  gap-3
-                  font-bold
-                  transition-all
-                  hover:scale-105
-                  active:scale-95
-              "
-
-              style={{
-
-                  background:
-                      "linear-gradient(90deg,#E8192C,#C41E3A)",
-
-                  color: "#FFF",
-
-                  boxShadow:
-                      "0 8px 28px rgba(232,25,44,.35)",
-
-              }}
-
-          >
-
-              <Share2 className="size-5" />
-
-              {generating
-                  ? "Gerando..."
-                  : "Compartilhar"}
-
-          </button>
-
-        </div>  
-      </div>
+        </div>
 
 
         {/* Stats */}
@@ -439,17 +431,17 @@
 
                     <div className="flex items-center justify-between">
 
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-2">
 
                             <img
                                 src="/taca.png"
-                                className="w-14"
+                                className="w-22"
                                 alt="Taça"
                             />
 
                             <div>
 
-                                <h1 className="text-5xl font-black leading-none">
+                                <h1 className="text-5xl font-black leading-none mb-4">
                                     PALPITES
                                 </h1>
 
@@ -461,9 +453,7 @@
 
                         </div>
 
-                        <div className="text-6xl">
-                            🏆
-                        </div>
+                        
 
                     </div>
 
@@ -625,7 +615,7 @@
                               damping: 24,
                           }}
 
-                          className="relative z-10 w-full max-w-2xl rounded-3xl"
+                          className="relative z-10 w-full max-w-2xl max-h-[95vh] overflow-y-auto rounded-3xl"
 
                           style={{
                               background: "#0B0F23",
@@ -678,7 +668,7 @@
                           <div className="px-8">
 
                               <p className="text-white">
-                                {previewUrl ? "Imagem gerada" : "Sem preview"}
+                                {previewUrl ? "" : "Sem preview"}
                               </p>
 
                               {previewUrl && (
